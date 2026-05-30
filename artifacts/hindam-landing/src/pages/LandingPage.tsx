@@ -165,39 +165,56 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="order-1 lg:order-2 relative h-[500px] md:h-[600px] flex items-center justify-center lg:justify-end perspective-1000"
+              className="order-1 lg:order-2 relative h-[580px] flex items-center justify-center"
             >
-              {/* Manager Phone (Background) */}
-              <div className="absolute right-[10%] md:right-[20%] lg:right-10 top-[5%] w-[248px] h-[520px] bg-[#f4f6f9] rounded-[2.8rem] shadow-2xl border-[7px] border-[#d8dee8] overflow-hidden scale-90 rotate-z-[4deg] opacity-90 transition-all hover:rotate-z-0 hover:opacity-100 hover:z-20 duration-500">
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#d8dee8] rounded-b-2xl z-20 flex items-center justify-center">
-                  <div className="w-8 h-2.5 bg-[#c0c8d8] rounded-full"></div>
-                </div>
-                {/* Screenshot fills the entire screen */}
+              {/* Glow blobs behind phones */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-72 h-72 bg-[#1C61CA]/10 rounded-full blur-3xl"></div>
+              </div>
+
+              {/* Manager Phone — tilted left, slightly behind */}
+              <motion.div
+                initial={{ opacity: 0, y: 30, rotate: -6 }}
+                animate={{ opacity: 1, y: 0, rotate: -6 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                whileHover={{ rotate: -2, scale: 1.03, zIndex: 20 }}
+                className="relative z-10 w-[210px] h-[440px] rounded-[2.5rem] shadow-2xl border-[6px] border-[#dde5f0] overflow-hidden -mr-10 mt-12 cursor-pointer"
+                style={{ boxShadow: "0 30px 60px -12px rgba(28,97,202,0.2), 0 18px 36px -18px rgba(0,0,0,0.15)" }}
+              >
                 <img
                   src="/manager-app.png"
                   alt="مدير هندام"
                   className="w-full h-full object-cover object-top"
                   draggable={false}
                 />
-              </div>
-
-              {/* Customer Phone (Foreground) */}
-              <div className="absolute left-[10%] md:left-[20%] lg:left-0 bottom-[5%] w-[248px] h-[520px] bg-[#eef3fb] rounded-[2.8rem] shadow-2xl border-[7px] border-[#bdd0ef] overflow-hidden z-10 transition-all hover:scale-105 hover:z-30 duration-500">
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#bdd0ef] rounded-b-2xl z-20 flex items-center justify-center">
-                  <div className="w-8 h-2.5 bg-[#a8c0e8] rounded-full"></div>
+                {/* Label badge */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-[#1C61CA] text-[10px] font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap border border-[#1C61CA]/10">
+                  مدير هندام
                 </div>
-                {/* Screenshot fills the entire screen */}
+              </motion.div>
+
+              {/* Customer Phone — straight/slightly right, in front */}
+              <motion.div
+                initial={{ opacity: 0, y: 30, rotate: 4 }}
+                animate={{ opacity: 1, y: 0, rotate: 4 }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                whileHover={{ rotate: 0, scale: 1.04, zIndex: 30 }}
+                className="relative z-20 w-[230px] h-[480px] rounded-[2.8rem] shadow-2xl border-[6px] border-[#bdd0ef] overflow-hidden -ml-10 -mt-6 cursor-pointer"
+                style={{ boxShadow: "0 40px 80px -16px rgba(28,97,202,0.25), 0 20px 40px -20px rgba(0,0,0,0.18)" }}
+              >
                 <img
                   src="/customer-app.png"
                   alt="هندام للزبائن"
                   className="w-full h-full object-cover object-top"
                   draggable={false}
                 />
-                {/* Subtle glow ring */}
-                <div className="absolute inset-0 rounded-[2.2rem] ring-2 ring-[#1C61CA]/20 pointer-events-none"></div>
-              </div>
+                {/* Blue glow ring */}
+                <div className="absolute inset-0 rounded-[2.2rem] ring-2 ring-[#1C61CA]/25 pointer-events-none"></div>
+                {/* Label badge */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#1C61CA] text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-md whitespace-nowrap">
+                  هندام للزبائن
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
