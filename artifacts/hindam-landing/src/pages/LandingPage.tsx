@@ -209,49 +209,58 @@ export default function LandingPage() {
               </div>
 
               {/* Customer Phone (Foreground) */}
-              <div className="absolute left-[10%] md:left-[20%] lg:left-0 bottom-[5%] w-[260px] h-[540px] bg-[#1a1a2e] rounded-[2.5rem] shadow-2xl border-[6px] border-[#2a2a4a] overflow-hidden z-10 transition-transform hover:scale-105 duration-500 flex flex-col">
-                <div className="absolute top-0 w-full h-6 bg-[#2a2a4a] flex justify-center items-center z-10">
-                   <div className="w-16 h-4 bg-[#1a1a2e] rounded-b-xl"></div>
+              <div className="absolute left-[10%] md:left-[20%] lg:left-0 bottom-[5%] w-[260px] h-[540px] bg-[#dce8fb] rounded-[2.5rem] shadow-2xl border-[6px] border-[#b8d0f5] overflow-hidden z-10 transition-transform hover:scale-105 duration-500 flex flex-col">
+                <div className="absolute top-0 w-full h-6 bg-[#b8d0f5] flex justify-center items-center z-10">
+                   <div className="w-16 h-4 bg-[#dce8fb] rounded-b-xl"></div>
                 </div>
                 {/* Screen Content */}
-                <div className="flex-1 flex flex-col pt-12 pb-6 px-5 items-center bg-gradient-to-b from-[#1a1a2e] to-[#0f0f1c]">
-                  
-                  <div className="w-full flex justify-end mb-6">
-                    <div className="bg-white/10 p-2 rounded-full text-white/70">
-                      <X size={16} />
+                <div className="flex-1 flex flex-col pt-10 pb-4 px-4 items-center bg-gradient-to-b from-[#dce8fb] to-[#c8daf7]">
+
+                  {/* App Header */}
+                  <div className="w-full flex justify-between items-center mb-5">
+                    <div className="bg-white/60 p-1.5 rounded-full">
+                      <X size={14} className="text-[#1C61CA]" />
                     </div>
+                    <span className="text-xs font-bold text-[#1C61CA]">تتبع الطلب</span>
+                    <div className="w-7 h-7"></div>
                   </div>
 
-                  <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mb-4 relative">
-                    <div className="absolute inset-0 bg-emerald-500/10 rounded-full animate-ping"></div>
-                    <CheckCircle className="text-emerald-400" size={40} />
+                  {/* Status Icon */}
+                  <div className="w-16 h-16 bg-emerald-500/15 rounded-full flex items-center justify-center mb-3 relative">
+                    <div className="absolute inset-0 bg-emerald-400/10 rounded-full animate-ping"></div>
+                    <CheckCircle className="text-emerald-500" size={32} />
                   </div>
                   
-                  <h2 className="text-white text-xl font-bold mb-1">طلب #1042</h2>
-                  <p className="text-white/60 text-sm mb-6">تم التحديث قبل دقيقتين</p>
+                  <h2 className="text-[#0d2a5e] text-lg font-black mb-0.5">طلب #1042</h2>
+                  <p className="text-[#1C61CA]/60 text-xs mb-3">تم التحديث قبل دقيقتين</p>
 
-                  <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-4 py-1.5 rounded-full text-sm font-bold mb-8">
+                  <div className="bg-emerald-500/15 border border-emerald-400/30 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-bold mb-4">
                     جاهز للاستلام
                   </div>
 
-                  <div className="w-full bg-white/5 rounded-2xl p-4 backdrop-blur-sm border border-white/10 space-y-4">
-                    <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                      <span className="text-white/60 text-sm">الزبون</span>
-                      <span className="text-white font-medium text-sm">أحمد علي</span>
+                  {/* Details Card */}
+                  <div className="w-full bg-white rounded-2xl p-3 shadow-sm border border-white/80 space-y-2.5 mb-3">
+                    <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                      <span className="text-slate-500 text-xs">الزبون</span>
+                      <span className="text-[#0d2a5e] font-semibold text-xs">أحمد علي</span>
                     </div>
-                    <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                      <span className="text-white/60 text-sm">نوع الخدمة</span>
-                      <span className="text-white font-medium text-sm">خياطة</span>
+                    <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                      <span className="text-slate-500 text-xs">نوع الخدمة</span>
+                      <span className="text-[#0d2a5e] font-semibold text-xs">خياطة</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                      <span className="text-slate-500 text-xs">المدفوع</span>
+                      <span className="text-[#0d2a5e] font-semibold text-xs">35,000 د.ع</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-white/60 text-sm">المبلغ المتبقي</span>
-                      <span className="text-emerald-400 font-bold text-sm">15,000 د.ع</span>
+                      <span className="text-slate-500 text-xs">المتبقي</span>
+                      <span className="text-[#1C61CA] font-black text-xs">15,000 د.ع</span>
                     </div>
                   </div>
 
-                  <div className="mt-auto w-full">
-                    <div className="w-full bg-white/10 hover:bg-white/20 transition-colors text-white text-center py-3 rounded-xl text-sm font-medium border border-white/10 cursor-pointer flex justify-center items-center gap-2">
-                      <MapPin size={16} />
+                  <div className="w-full">
+                    <div className="w-full bg-[#1C61CA] text-white text-center py-2.5 rounded-xl text-xs font-bold cursor-pointer flex justify-center items-center gap-1.5 shadow-md">
+                      <MapPin size={13} />
                       موقع المشغل
                     </div>
                   </div>
@@ -571,7 +580,7 @@ export default function LandingPage() {
             </div>
 
             <div className="bg-card border border-border p-10 rounded-3xl shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-indigo-400"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-blue-400"></div>
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                 <Lock size={32} />
               </div>
