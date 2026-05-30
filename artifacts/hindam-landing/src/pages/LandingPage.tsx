@@ -42,7 +42,6 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-[100dvh] bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary">
-      
       {/* 1. Navigation Bar */}
       <nav className="sticky top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,7 +92,6 @@ export default function LandingPage() {
           </motion.div>
         )}
       </nav>
-
       {/* 2. Hero Section */}
       <section id="hero" className="relative pt-20 pb-32 overflow-hidden">
         {/* Background Gradients */}
@@ -118,7 +116,7 @@ export default function LandingPage() {
                 النظام الأذكى في العراق
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] mb-6 tracking-tight text-foreground">
+              <motion.h1 variants={fadeInUp} className="md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-foreground text-[50px]">
                 تطبيق هندام: دليلك الذكي لتتبع طلبات الخياطة والغسيل <span className="text-primary relative whitespace-nowrap">
                   <span className="relative z-10">بدون تسجيل دخول!</span>
                   <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -219,7 +217,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* 3. Ecosystem Overview Section */}
       <section id="ecosystem" className="py-24 bg-muted/30 border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -310,7 +307,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* 4. Feature Showcase */}
       <section id="features" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -448,7 +444,6 @@ export default function LandingPage() {
 
         </div>
       </section>
-
       {/* 5. How It Works */}
       <section id="how-it-works" className="py-24 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -510,7 +505,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* 6. Security & Trust */}
       <section id="trust" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -541,7 +535,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* 7. Footer CTA */}
       <section className="bg-foreground text-background py-20 relative overflow-hidden">
         {/* Subtle decorative circles */}
@@ -592,7 +585,6 @@ export default function LandingPage() {
           </p>
         </div>
       </section>
-
     </div>
   );
 }
