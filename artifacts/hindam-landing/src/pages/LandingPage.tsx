@@ -168,104 +168,35 @@ export default function LandingPage() {
               className="order-1 lg:order-2 relative h-[500px] md:h-[600px] flex items-center justify-center lg:justify-end perspective-1000"
             >
               {/* Manager Phone (Background) */}
-              <div className="absolute right-[10%] md:right-[20%] lg:right-10 top-[5%] w-[260px] h-[540px] bg-[#f8fafc] rounded-[2.5rem] shadow-2xl border-[6px] border-slate-200 overflow-hidden scale-90 rotate-y-[15deg] rotate-z-[5deg] opacity-90 transition-transform hover:rotate-y-0 hover:rotate-z-0 hover:z-20 duration-500 flex flex-col">
-                <div className="absolute top-0 w-full h-6 bg-slate-200 flex justify-center items-center z-10">
-                   <div className="w-16 h-4 bg-slate-300 rounded-b-xl"></div>
+              <div className="absolute right-[10%] md:right-[20%] lg:right-10 top-[5%] w-[248px] h-[520px] bg-[#f4f6f9] rounded-[2.8rem] shadow-2xl border-[7px] border-[#d8dee8] overflow-hidden scale-90 rotate-z-[4deg] opacity-90 transition-all hover:rotate-z-0 hover:opacity-100 hover:z-20 duration-500">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#d8dee8] rounded-b-2xl z-20 flex items-center justify-center">
+                  <div className="w-8 h-2.5 bg-[#c0c8d8] rounded-full"></div>
                 </div>
-                <div className="bg-primary text-white p-4 pt-8 pb-6 shadow-sm">
-                  <div className="flex justify-between items-center mb-4">
-                    <Menu size={20} />
-                    <span className="font-bold">مشغل الأناقة</span>
-                    <div className="w-6 h-6 rounded-full bg-white/20"></div>
-                  </div>
-                  <div className="text-xs opacity-80">إجمالي الطلبات اليوم</div>
-                  <div className="text-2xl font-bold">24</div>
-                </div>
-                <div className="flex-1 p-3 flex flex-col gap-3 overflow-hidden bg-slate-50">
-                  <div className="flex justify-between items-center px-1">
-                    <span className="text-xs font-bold text-slate-700">الطلبات الحديثة</span>
-                  </div>
-                  {[
-                    {id: "1042", name: "أحمد علي", status: "جاهز", color: "bg-emerald-100 text-emerald-700"},
-                    {id: "1041", name: "محمد حسن", status: "قيد التنفيذ", color: "bg-blue-100 text-blue-700"},
-                    {id: "1040", name: "علي عمر", status: "مسلّم", color: "bg-slate-200 text-slate-600"},
-                    {id: "1039", name: "سعد قاسم", status: "قيد التنفيذ", color: "bg-blue-100 text-blue-700"}
-                  ].map((order, i) => (
-                    <div key={i} className="bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex justify-between items-center">
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-slate-800">#{order.id} - {order.name}</span>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className={`text-[9px] px-2 py-0.5 rounded-full font-medium ${order.color}`}>{order.status}</span>
-                        </div>
-                      </div>
-                      {i === 0 && (
-                        <div className="bg-slate-100 p-1.5 rounded-lg text-slate-600">
-                          <Printer size={14} />
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                {/* Screenshot fills the entire screen */}
+                <img
+                  src="/manager-app.png"
+                  alt="مدير هندام"
+                  className="w-full h-full object-cover object-top"
+                  draggable={false}
+                />
               </div>
 
               {/* Customer Phone (Foreground) */}
-              <div className="absolute left-[10%] md:left-[20%] lg:left-0 bottom-[5%] w-[260px] h-[540px] bg-[#dce8fb] rounded-[2.5rem] shadow-2xl border-[6px] border-[#b8d0f5] overflow-hidden z-10 transition-transform hover:scale-105 duration-500 flex flex-col">
-                <div className="absolute top-0 w-full h-6 bg-[#b8d0f5] flex justify-center items-center z-10">
-                   <div className="w-16 h-4 bg-[#dce8fb] rounded-b-xl"></div>
+              <div className="absolute left-[10%] md:left-[20%] lg:left-0 bottom-[5%] w-[248px] h-[520px] bg-[#eef3fb] rounded-[2.8rem] shadow-2xl border-[7px] border-[#bdd0ef] overflow-hidden z-10 transition-all hover:scale-105 hover:z-30 duration-500">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#bdd0ef] rounded-b-2xl z-20 flex items-center justify-center">
+                  <div className="w-8 h-2.5 bg-[#a8c0e8] rounded-full"></div>
                 </div>
-                {/* Screen Content */}
-                <div className="flex-1 flex flex-col pt-10 pb-4 px-4 items-center bg-gradient-to-b from-[#dce8fb] to-[#c8daf7]">
-
-                  {/* App Header */}
-                  <div className="w-full flex justify-between items-center mb-5">
-                    <div className="bg-white/60 p-1.5 rounded-full">
-                      <X size={14} className="text-[#1C61CA]" />
-                    </div>
-                    <span className="text-xs font-bold text-[#1C61CA]">تتبع الطلب</span>
-                    <div className="w-7 h-7"></div>
-                  </div>
-
-                  {/* Status Icon */}
-                  <div className="w-16 h-16 bg-emerald-500/15 rounded-full flex items-center justify-center mb-3 relative">
-                    <div className="absolute inset-0 bg-emerald-400/10 rounded-full animate-ping"></div>
-                    <CheckCircle className="text-emerald-500" size={32} />
-                  </div>
-                  
-                  <h2 className="text-[#0d2a5e] text-lg font-black mb-0.5">طلب #1042</h2>
-                  <p className="text-[#1C61CA]/60 text-xs mb-3">تم التحديث قبل دقيقتين</p>
-
-                  <div className="bg-emerald-500/15 border border-emerald-400/30 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-bold mb-4">
-                    جاهز للاستلام
-                  </div>
-
-                  {/* Details Card */}
-                  <div className="w-full bg-white rounded-2xl p-3 shadow-sm border border-white/80 space-y-2.5 mb-3">
-                    <div className="flex justify-between items-center border-b border-slate-100 pb-2">
-                      <span className="text-slate-500 text-xs">الزبون</span>
-                      <span className="text-[#0d2a5e] font-semibold text-xs">أحمد علي</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-slate-100 pb-2">
-                      <span className="text-slate-500 text-xs">نوع الخدمة</span>
-                      <span className="text-[#0d2a5e] font-semibold text-xs">خياطة</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-slate-100 pb-2">
-                      <span className="text-slate-500 text-xs">المدفوع</span>
-                      <span className="text-[#0d2a5e] font-semibold text-xs">35,000 د.ع</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-500 text-xs">المتبقي</span>
-                      <span className="text-[#1C61CA] font-black text-xs">15,000 د.ع</span>
-                    </div>
-                  </div>
-
-                  <div className="w-full">
-                    <div className="w-full bg-[#1C61CA] text-white text-center py-2.5 rounded-xl text-xs font-bold cursor-pointer flex justify-center items-center gap-1.5 shadow-md">
-                      <MapPin size={13} />
-                      موقع المشغل
-                    </div>
-                  </div>
-
-                </div>
+                {/* Screenshot fills the entire screen */}
+                <img
+                  src="/customer-app.png"
+                  alt="هندام للزبائن"
+                  className="w-full h-full object-cover object-top"
+                  draggable={false}
+                />
+                {/* Subtle glow ring */}
+                <div className="absolute inset-0 rounded-[2.2rem] ring-2 ring-[#1C61CA]/20 pointer-events-none"></div>
               </div>
             </motion.div>
           </div>
