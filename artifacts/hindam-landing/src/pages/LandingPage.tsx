@@ -93,13 +93,13 @@ export default function LandingPage() {
         )}
       </nav>
       {/* 2. Hero Section */}
-      <section id="hero" className="relative pt-20 pb-32 overflow-hidden">
+      <section id="hero" className="relative pt-10 pb-16 lg:pt-20 lg:pb-32 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             
             {/* Right Column: Text */}
             <motion.div 
@@ -116,7 +116,7 @@ export default function LandingPage() {
                 النظام الأذكى في العراق
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-foreground text-[50px]">
+              <motion.h1 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-foreground">
                 تطبيق هندام: دليلك الذكي لتتبع طلبات الخياطة والغسيل <span className="text-primary relative whitespace-nowrap">
                   <span className="relative z-10">بدون تسجيل دخول!</span>
                   <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -163,11 +163,11 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="order-1 lg:order-2 relative h-[580px] flex items-center justify-center"
+              className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[580px] flex items-center justify-center"
             >
               {/* Glow blobs behind phones */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-72 h-72 bg-[#1C61CA]/10 rounded-full blur-3xl"></div>
+                <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-[#1C61CA]/10 rounded-full blur-3xl"></div>
               </div>
 
               {/* Manager Phone — tilted left, slightly behind */}
@@ -176,7 +176,7 @@ export default function LandingPage() {
                 animate={{ opacity: 1, y: 0, rotate: -6 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
                 whileHover={{ rotate: -2, scale: 1.03, zIndex: 20 }}
-                className="relative z-10 w-[210px] h-[440px] rounded-[2.5rem] shadow-2xl border-[6px] border-[#dde5f0] overflow-hidden -mr-10 mt-12 cursor-pointer"
+                className="relative z-10 w-[120px] h-[250px] sm:w-[165px] sm:h-[345px] lg:w-[210px] lg:h-[440px] rounded-[2rem] lg:rounded-[2.5rem] shadow-2xl border-[4px] lg:border-[6px] border-[#dde5f0] overflow-hidden -mr-6 sm:-mr-8 lg:-mr-10 mt-6 sm:mt-9 lg:mt-12 cursor-pointer"
                 style={{ boxShadow: "0 30px 60px -12px rgba(28,97,202,0.2), 0 18px 36px -18px rgba(0,0,0,0.15)" }}
               >
                 <img
@@ -197,7 +197,7 @@ export default function LandingPage() {
                 animate={{ opacity: 1, y: 0, rotate: 4 }}
                 transition={{ duration: 0.7, delay: 0.25 }}
                 whileHover={{ rotate: 0, scale: 1.04, zIndex: 30 }}
-                className="relative z-20 w-[230px] h-[480px] rounded-[2.8rem] shadow-2xl border-[6px] border-[#bdd0ef] overflow-hidden -ml-10 -mt-6 cursor-pointer"
+                className="relative z-20 w-[130px] h-[270px] sm:w-[180px] sm:h-[378px] lg:w-[230px] lg:h-[480px] rounded-[2rem] lg:rounded-[2.8rem] shadow-2xl border-[4px] lg:border-[6px] border-[#bdd0ef] overflow-hidden -ml-6 sm:-ml-8 lg:-ml-10 -mt-4 sm:-mt-5 lg:-mt-6 cursor-pointer"
                 style={{ boxShadow: "0 40px 80px -16px rgba(28,97,202,0.25), 0 20px 40px -20px rgba(0,0,0,0.18)" }}
               >
                 <img
