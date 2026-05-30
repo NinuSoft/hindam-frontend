@@ -312,7 +312,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Tab Switcher */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-8 md:mb-16">
             <div className="inline-flex bg-muted rounded-full p-1 border border-border">
               <button 
                 onClick={() => setActiveTab("customer")}
@@ -336,7 +336,7 @@ export default function LandingPage() {
           </div>
 
           {/* Tab Content */}
-          <div className="relative min-h-[500px]">
+          <div className="relative">
             {/* Customer Features */}
             {activeTab === "customer" && (
               <motion.div 
@@ -347,40 +347,40 @@ export default function LandingPage() {
                 transition={{ duration: 0.3 }}
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <QrCode size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">مسح ذكي وسريع</h3>
                   <p className="text-muted-foreground leading-relaxed">وجه كاميرا هاتفك نحو رمز الاستجابة السريعة على فاتورتك للوصول الفوري إلى طلبك، أو أدخل رقم الطلب يدوياً.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <Clock size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تتبع لحظي للحالة</h3>
                   <p className="text-muted-foreground leading-relaxed">تعرف على حالة ملابسك فوراً: قيد التنفيذ، جاهز للاستلام، أو مُسلّم — لتوفر على نفسك عناء الانتظار.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <FileText size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تفاصيل الفاتورة الشاملة</h3>
                   <p className="text-muted-foreground leading-relaxed">راجع كل تفاصيل طلبك بشفافية تامة: نوع الخدمات، الكمية، الأسعار، المبالغ المدفوعة، والمبلغ المتبقي.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <MapPin size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">معلومات المشغل</h3>
                   <p className="text-muted-foreground leading-relaxed">وصول سريع لاسم المشغل، رقم التواصل، وموقعه الجغرافي لتسهيل عملية استلام طلبك عندما يكون جاهزاً.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow lg:col-span-2">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow lg:col-span-2">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <Smartphone size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">واجهة ذكية وأنيقة</h3>
@@ -399,40 +399,40 @@ export default function LandingPage() {
                 transition={{ duration: 0.3 }}
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <WifiOff size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">يعمل بدون إنترنت (Offline-First)</h3>
                   <p className="text-muted-foreground leading-relaxed">انقطع الإنترنت؟ لا مشكلة! استمر في إضافة الزبائن وإنشاء الطلبات. التطبيق يزامن البيانات فور عودة الاتصال.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <Printer size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">طباعة الفواتير الحرارية</h3>
                   <p className="text-muted-foreground leading-relaxed">يدعم الاقتران السريع بطابعات البلوتوث لطباعة فواتير أنيقة تحتوي على تفاصيل الطلب ورمز QR فريد.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <Package size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">إدارة مرنة للطلبات</h3>
                   <p className="text-muted-foreground leading-relaxed">غيّر حالة الطلب بلمسة واحدة: قيد التنفيذ — جاهز — مُسلّم. إدارة سلسة وبصرية.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <Users size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">قاعدة بيانات زبائنك</h3>
                   <p className="text-muted-foreground leading-relaxed">احتفظ بسجل منظم لعملائك يشمل أرقام هواتفهم، قياساتهم المفصلة، وتاريخ طلباتهم السابقة.</p>
                 </div>
 
-                <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow lg:col-span-2">
-                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow lg:col-span-2">
+                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
                     <Settings size={28} />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تخصيص كامل لمشغلك</h3>
@@ -447,7 +447,7 @@ export default function LandingPage() {
       {/* 5. How It Works */}
       <section id="how-it-works" className="py-14 md:py-24 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-3 md:mb-4">كيف يعمل هندام؟</h2>
             <p className="text-sm md:text-base lg:text-lg text-muted-foreground">ثلاث خطوات بسيطة فقط لتتبع أناقتك</p>
           </div>
@@ -510,7 +510,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             
-            <div className="bg-card border border-border p-10 rounded-3xl shadow-sm relative overflow-hidden group">
+            <div className="bg-card border border-border p-6 md:p-10 rounded-2xl md:rounded-3xl shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/70 to-primary/40"></div>
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                 <Shield size={32} />
@@ -521,7 +521,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="bg-card border border-border p-10 rounded-3xl shadow-sm relative overflow-hidden group">
+            <div className="bg-card border border-border p-6 md:p-10 rounded-2xl md:rounded-3xl shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-blue-400"></div>
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                 <Lock size={32} />
