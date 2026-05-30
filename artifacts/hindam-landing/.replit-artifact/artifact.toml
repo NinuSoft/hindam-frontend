@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Hindam Landing Page"
+version = "1.0.0"
+id = "artifacts/hindam-landing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23441
+
+[services.development]
+run = "pnpm --filter @workspace/hindam-landing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hindam-landing", "run", "build" ]
+publicDir = "artifacts/hindam-landing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23441"
+BASE_PATH = "/"
