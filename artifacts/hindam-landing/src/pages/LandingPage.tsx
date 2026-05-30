@@ -316,19 +316,19 @@ export default function LandingPage() {
             <div className="inline-flex bg-muted rounded-full p-1 border border-border">
               <button 
                 onClick={() => setActiveTab("customer")}
-                className={`relative px-8 py-3 rounded-full text-sm font-bold transition-colors ${activeTab === "customer" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
+                className={`relative px-8 py-3 rounded-full text-sm font-bold transition-colors ${activeTab === "customer" ? "text-white" : "text-muted-foreground hover:text-foreground"}`}
               >
                 {activeTab === "customer" && (
-                  <motion.div layoutId="activeTab" className="absolute inset-0 dark:bg-slate-800 rounded-full shadow-sm bg-[#1c61ca]" />
+                  <motion.div layoutId="activeTab" className="absolute inset-0 bg-primary rounded-full shadow-sm" />
                 )}
-                <span className="relative z-10 text-[#ffffff]">هندام للزبائن</span>
+                <span className="relative z-10">هندام للزبائن</span>
               </button>
               <button 
                 onClick={() => setActiveTab("manager")}
-                className={`relative px-8 py-3 rounded-full text-sm font-bold transition-colors ${activeTab === "manager" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
+                className={`relative px-8 py-3 rounded-full text-sm font-bold transition-colors ${activeTab === "manager" ? "text-white" : "text-muted-foreground hover:text-foreground"}`}
               >
                 {activeTab === "manager" && (
-                  <motion.div layoutId="activeTab" className="absolute inset-0 bg-white dark:bg-slate-800 rounded-full shadow-sm" />
+                  <motion.div layoutId="activeTab" className="absolute inset-0 bg-primary rounded-full shadow-sm" />
                 )}
                 <span className="relative z-10">مدير هندام</span>
               </button>
