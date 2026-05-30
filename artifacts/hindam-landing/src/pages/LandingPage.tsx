@@ -49,7 +49,7 @@ export default function LandingPage() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-              <span className="text-2xl font-bold bg-gradient-to-l from-primary to-accent bg-clip-text text-transparent">NinuSoft</span>
+              <span className="text-2xl font-bold bg-gradient-to-l from-primary to-primary/60 bg-clip-text text-transparent">NinuSoft</span>
             </div>
 
             {/* Desktop Nav */}
@@ -98,7 +98,7 @@ export default function LandingPage() {
       <section id="hero" className="relative pt-20 pb-32 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -121,7 +121,7 @@ export default function LandingPage() {
               <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] mb-6 tracking-tight text-foreground">
                 تطبيق هندام: دليلك الذكي لتتبع طلبات الخياطة والغسيل <span className="text-primary relative whitespace-nowrap">
                   <span className="relative z-10">بدون تسجيل دخول!</span>
-                  <svg className="absolute w-full h-3 -bottom-1 left-0 text-accent/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                  <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
                   </svg>
                 </span>
@@ -134,9 +134,9 @@ export default function LandingPage() {
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 {/* Card A */}
                 <div className="flex-1 bg-white/50 backdrop-blur-sm border border-border p-5 rounded-2xl shadow-sm hover:shadow-md transition-all relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-accent/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-accent/10 text-accent rounded-lg">
+                    <div className="p-2 bg-primary/10 text-primary rounded-lg">
                       <Smartphone size={20} />
                     </div>
                     <h3 className="font-bold">هندام للزبائن</h3>
@@ -300,7 +300,7 @@ export default function LandingPage() {
               transition={{ delay: 0.7 }}
               className="flex flex-col items-center z-10"
             >
-              <div className="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center text-white shadow-lg mb-4">
+              <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg mb-4">
                 <Smartphone size={32} />
               </div>
               <h4 className="font-bold">هندام للزبائن</h4>
@@ -320,7 +320,7 @@ export default function LandingPage() {
             <div className="inline-flex bg-muted rounded-full p-1 border border-border">
               <button 
                 onClick={() => setActiveTab("customer")}
-                className={`relative px-8 py-3 rounded-full text-sm font-bold transition-colors ${activeTab === "customer" ? "text-accent" : "text-muted-foreground hover:text-foreground"}`}
+                className={`relative px-8 py-3 rounded-full text-sm font-bold transition-colors ${activeTab === "customer" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
               >
                 {activeTab === "customer" && (
                   <motion.div layoutId="activeTab" className="absolute inset-0 bg-white dark:bg-slate-800 rounded-full shadow-sm" />
@@ -352,7 +352,7 @@ export default function LandingPage() {
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <QrCode size={28} />
                   </div>
                   <h3 className="text-xl font-bold mb-3">مسح ذكي وسريع</h3>
@@ -360,7 +360,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Clock size={28} />
                   </div>
                   <h3 className="text-xl font-bold mb-3">تتبع لحظي للحالة</h3>
@@ -368,7 +368,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <FileText size={28} />
                   </div>
                   <h3 className="text-xl font-bold mb-3">تفاصيل الفاتورة الشاملة</h3>
@@ -376,7 +376,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <MapPin size={28} />
                   </div>
                   <h3 className="text-xl font-bold mb-3">معلومات المشغل</h3>
@@ -384,7 +384,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="bg-card border border-border p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow lg:col-span-2">
-                  <div className="w-14 h-14 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Smartphone size={28} />
                   </div>
                   <h3 className="text-xl font-bold mb-3">واجهة ذكية وأنيقة</h3>
@@ -517,8 +517,8 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-8">
             
             <div className="bg-card border border-border p-10 rounded-3xl shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-emerald-300"></div>
-              <div className="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-6">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/70 to-primary/40"></div>
+              <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                 <Shield size={32} />
               </div>
               <h3 className="text-2xl font-bold mb-4">خصوصيتك هي أولويتنا المطلقة</h3>
@@ -546,7 +546,7 @@ export default function LandingPage() {
       <section className="bg-foreground text-background py-20 relative overflow-hidden">
         {/* Subtle decorative circles */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
@@ -560,7 +560,7 @@ export default function LandingPage() {
             {/* Card A */}
             <div className="flex-1 bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors text-right">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-accent/20 text-accent rounded-lg">
+                <div className="p-2 bg-primary/20 text-primary rounded-lg">
                   <Smartphone size={20} />
                 </div>
                 <h3 className="font-bold text-white">هندام للزبائن</h3>
