@@ -116,7 +116,7 @@ export default function LandingPage() {
                 النظام الأذكى في العراق
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-foreground">
+              <motion.h1 variants={fadeInUp} className="text-[1.6rem] leading-snug sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 tracking-tight text-foreground">
                 تطبيق هندام: دليلك الذكي لتتبع طلبات الخياطة والغسيل <span className="text-primary relative whitespace-nowrap">
                   <span className="relative z-10">بدون تسجيل دخول!</span>
                   <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -125,7 +125,7 @@ export default function LandingPage() {
                 </span>
               </motion.h1>
               
-              <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              <motion.p variants={fadeInUp} className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-6 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 وداعاً لضياع الفواتير أو الاتصال المتكرر لمعرفة حالة ملابسك! نظام بيئي متكامل يربط المشغل بالزبون بلمسة واحدة.
               </motion.p>
               
@@ -218,7 +218,7 @@ export default function LandingPage() {
         </div>
       </section>
       {/* 3. Ecosystem Overview Section */}
-      <section id="ecosystem" className="py-24 bg-muted/30 border-y border-border">
+      <section id="ecosystem" className="py-14 md:py-24 bg-muted/30 border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -226,8 +226,8 @@ export default function LandingPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-black mb-6">نظام بيئي متكامل يربط المشغل بالزبون بلمسة واحدة</h2>
-            <p className="text-lg text-muted-foreground mb-16 max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6">نظام بيئي متكامل يربط المشغل بالزبون بلمسة واحدة</h2>
+            <p className="text-sm md:text-lg text-muted-foreground mb-10 md:mb-16 max-w-3xl mx-auto">
               نظام هندام يحول طريقة إدارة المشاغل والمغاسل في العراق. المشغل يُنشئ الطلبات ويطبع فواتير احترافية، والزبون يتابع ملابسه باستقلالية تامة.
             </p>
           </motion.div>
@@ -308,7 +308,7 @@ export default function LandingPage() {
         </div>
       </section>
       {/* 4. Feature Showcase */}
-      <section id="features" className="py-24">
+      <section id="features" className="py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Tab Switcher */}
@@ -351,7 +351,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <QrCode size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">مسح ذكي وسريع</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">مسح ذكي وسريع</h3>
                   <p className="text-muted-foreground leading-relaxed">وجه كاميرا هاتفك نحو رمز الاستجابة السريعة على فاتورتك للوصول الفوري إلى طلبك، أو أدخل رقم الطلب يدوياً.</p>
                 </div>
 
@@ -359,7 +359,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Clock size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">تتبع لحظي للحالة</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تتبع لحظي للحالة</h3>
                   <p className="text-muted-foreground leading-relaxed">تعرف على حالة ملابسك فوراً: قيد التنفيذ، جاهز للاستلام، أو مُسلّم — لتوفر على نفسك عناء الانتظار.</p>
                 </div>
 
@@ -367,7 +367,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <FileText size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">تفاصيل الفاتورة الشاملة</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تفاصيل الفاتورة الشاملة</h3>
                   <p className="text-muted-foreground leading-relaxed">راجع كل تفاصيل طلبك بشفافية تامة: نوع الخدمات، الكمية، الأسعار، المبالغ المدفوعة، والمبلغ المتبقي.</p>
                 </div>
 
@@ -375,7 +375,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <MapPin size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">معلومات المشغل</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">معلومات المشغل</h3>
                   <p className="text-muted-foreground leading-relaxed">وصول سريع لاسم المشغل، رقم التواصل، وموقعه الجغرافي لتسهيل عملية استلام طلبك عندما يكون جاهزاً.</p>
                 </div>
 
@@ -383,7 +383,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Smartphone size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">واجهة ذكية وأنيقة</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">واجهة ذكية وأنيقة</h3>
                   <p className="text-muted-foreground leading-relaxed max-w-2xl">تصميم مريح للعين يتفاعل مع حالة طلبك، ويعرض لك الإشعارات المهمة عندما تكون ملابسك جاهزة.</p>
                 </div>
               </motion.div>
@@ -403,7 +403,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <WifiOff size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">يعمل بدون إنترنت (Offline-First)</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">يعمل بدون إنترنت (Offline-First)</h3>
                   <p className="text-muted-foreground leading-relaxed">انقطع الإنترنت؟ لا مشكلة! استمر في إضافة الزبائن وإنشاء الطلبات. التطبيق يزامن البيانات فور عودة الاتصال.</p>
                 </div>
 
@@ -411,7 +411,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Printer size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">طباعة الفواتير الحرارية</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">طباعة الفواتير الحرارية</h3>
                   <p className="text-muted-foreground leading-relaxed">يدعم الاقتران السريع بطابعات البلوتوث لطباعة فواتير أنيقة تحتوي على تفاصيل الطلب ورمز QR فريد.</p>
                 </div>
 
@@ -419,7 +419,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Package size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">إدارة مرنة للطلبات</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">إدارة مرنة للطلبات</h3>
                   <p className="text-muted-foreground leading-relaxed">غيّر حالة الطلب بلمسة واحدة: قيد التنفيذ — جاهز — مُسلّم. إدارة سلسة وبصرية.</p>
                 </div>
 
@@ -427,7 +427,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Users size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">قاعدة بيانات زبائنك</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">قاعدة بيانات زبائنك</h3>
                   <p className="text-muted-foreground leading-relaxed">احتفظ بسجل منظم لعملائك يشمل أرقام هواتفهم، قياساتهم المفصلة، وتاريخ طلباتهم السابقة.</p>
                 </div>
 
@@ -435,7 +435,7 @@ export default function LandingPage() {
                   <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                     <Settings size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">تخصيص كامل لمشغلك</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تخصيص كامل لمشغلك</h3>
                   <p className="text-muted-foreground leading-relaxed max-w-2xl">من خلال معالج الإعداد الذكي، خصّص التطبيق ليعرض أدوات الخياطة فقط، المغسلة، أو كليهما معاً.</p>
                 </div>
               </motion.div>
@@ -445,11 +445,11 @@ export default function LandingPage() {
         </div>
       </section>
       {/* 5. How It Works */}
-      <section id="how-it-works" className="py-24 bg-primary/5">
+      <section id="how-it-works" className="py-14 md:py-24 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black mb-4">كيف يعمل هندام؟</h2>
-            <p className="text-lg text-muted-foreground">ثلاث خطوات بسيطة فقط لتتبع أناقتك</p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-3 md:mb-4">كيف يعمل هندام؟</h2>
+            <p className="text-sm md:text-base lg:text-lg text-muted-foreground">ثلاث خطوات بسيطة فقط لتتبع أناقتك</p>
           </div>
 
           <div className="flex flex-col md:flex-row justify-between relative">
@@ -467,7 +467,7 @@ export default function LandingPage() {
                 <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-110 transition-transform">1</div>
                 <Receipt size={36} className="text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3">استلم فاتورتك</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">استلم فاتورتك</h3>
               <p className="text-muted-foreground">استلم فاتورتك من المشغل أو المغسلة التي تستخدم نظام هندام للإدارة.</p>
             </motion.div>
 
@@ -483,7 +483,7 @@ export default function LandingPage() {
                 <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-110 transition-transform">2</div>
                 <QrCode size={36} className="text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3">امسح رمز الـ QR</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">امسح رمز الـ QR</h3>
               <p className="text-muted-foreground">افتح التطبيق وقم بمسح رمز الـ QR الموجود على الفاتورة.</p>
             </motion.div>
 
@@ -499,14 +499,14 @@ export default function LandingPage() {
                 <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-110 transition-transform">3</div>
                 <CheckCircle size={36} className="text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3">تابع وانتظر الجاهزية</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تابع وانتظر الجاهزية</h3>
               <p className="text-muted-foreground">تابع حالة ملابسك، وتوجه لاستلامها فور ظهور حالة جاهز للاستلام.</p>
             </motion.div>
           </div>
         </div>
       </section>
       {/* 6. Security & Trust */}
-      <section id="trust" className="py-24">
+      <section id="trust" className="py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             
@@ -515,7 +515,7 @@ export default function LandingPage() {
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                 <Shield size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">خصوصيتك هي أولويتنا المطلقة</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">خصوصيتك هي أولويتنا المطلقة</h3>
               <p className="text-muted-foreground leading-relaxed text-lg">
                 تطبيق الزبون لا يتطلب أي إنشاء حساب، ولا يطلب كلمات مرور، ولا يجمع أي بيانات شخصية من هاتفك. التطبيق هو مجرد نافذة آمنة للقراءة فقط.
               </p>
@@ -526,7 +526,7 @@ export default function LandingPage() {
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
                 <Lock size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">الأمان والخصوصية أولاً</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">الأمان والخصوصية أولاً</h3>
               <p className="text-muted-foreground leading-relaxed text-lg">
                 بيانات مشغلك وزبائنك هي ملكك وحدك. نحن نستخدم أحدث تقنيات التشفير السحابية لضمان أمان فواتيرك ومعلومات زبائنك.
               </p>
@@ -542,10 +542,10 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-black mb-4 md:mb-6 leading-tight">
             ابدأ التحول الرقمي لمشغلك اليوم!<br/>أو تتبع أناقتك الآن.
           </h2>
-          <p className="text-lg md:text-xl text-white/70 mb-12">
+          <p className="text-sm md:text-lg lg:text-xl text-white/70 mb-8 md:mb-12">
             حمّل تطبيق هندام الآن، وابقَ دائماً على استعداد بأناقتك!
           </p>
 
