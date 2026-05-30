@@ -319,9 +319,9 @@ export default function LandingPage() {
                 className={`relative px-8 py-3 rounded-full text-sm font-bold transition-colors ${activeTab === "customer" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
               >
                 {activeTab === "customer" && (
-                  <motion.div layoutId="activeTab" className="absolute inset-0 bg-white dark:bg-slate-800 rounded-full shadow-sm" />
+                  <motion.div layoutId="activeTab" className="absolute inset-0 dark:bg-slate-800 rounded-full shadow-sm bg-[#1c61ca]" />
                 )}
-                <span className="relative z-10">هندام للزبائن</span>
+                <span className="relative z-10 text-[#ffffff]">هندام للزبائن</span>
               </button>
               <button 
                 onClick={() => setActiveTab("manager")}
