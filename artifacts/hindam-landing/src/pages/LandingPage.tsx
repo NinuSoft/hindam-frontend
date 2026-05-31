@@ -208,10 +208,6 @@ export default function LandingPage() {
                 />
                 {/* Blue glow ring */}
                 <div className="absolute inset-0 rounded-[2.2rem] ring-2 ring-[#1C61CA]/25 pointer-events-none"></div>
-                {/* Label badge */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#1C61CA] text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-md whitespace-nowrap">
-                  هندام للزبائن
-                </div>
               </motion.div>
             </motion.div>
           </div>
