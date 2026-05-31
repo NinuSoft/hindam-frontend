@@ -185,10 +185,6 @@ export default function LandingPage() {
                   className="w-full h-full object-cover object-top"
                   draggable={false}
                 />
-                {/* Label badge */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-[#1C61CA] text-[10px] font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap border border-[#1C61CA]/10">
-                  مدير هندام
-                </div>
               </motion.div>
 
               {/* Customer Phone — straight/slightly right, in front */}
