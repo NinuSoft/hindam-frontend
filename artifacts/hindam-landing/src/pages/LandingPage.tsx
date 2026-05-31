@@ -41,7 +41,7 @@ export default function LandingPage() {
   );
 
   return (
-    <div className="min-h-[100dvh] bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-[100dvh] bg-background text-foreground overflow-x-clip selection:bg-primary/20 selection:text-primary">
       {/* 1. Navigation Bar */}
       <nav className="sticky top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
