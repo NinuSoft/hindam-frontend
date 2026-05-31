@@ -573,7 +573,7 @@ export default function LandingPage() {
         {/* Copyright */}
         <div className="max-w-7xl mx-auto px-4 mt-20 pt-8 border-t border-white/10 text-center relative z-10">
           <p className="text-sm text-white/50">
-            جميع الحقوق محفوظة &copy; 2024 — تطبيق مقدم من شركة <span className="font-bold text-white/80">NinuSoft</span> للحلول البرمجية
+            جميع الحقوق محفوظة &copy; 2026 — تطبيق مقدم من شركة <span className="font-bold text-white/80">NinuSoft</span> للحلول البرمجية
           </p>
         </div>
       </section>
