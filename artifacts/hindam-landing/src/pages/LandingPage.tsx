@@ -47,9 +47,9 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+            <a href="https://ninusoft.com" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
               <span className="text-2xl font-bold bg-gradient-to-l from-primary to-primary/60 bg-clip-text text-transparent">NinuSoft</span>
-            </div>
+            </a>
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
