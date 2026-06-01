@@ -7,7 +7,7 @@ const CUSTOMER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninu
 const MANAGER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninusoft.hindam.manager";
 
 const GooglePlayBadge = ({ href = "#" }: { href?: string }) => (
-  <a href={href} className="inline-flex items-center gap-3 text-white px-5 py-2.5 rounded-xl hover:bg-[#017050] transition-colors shadow-md w-full sm:w-auto bg-[#000000]">
+  <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-white px-5 py-2.5 rounded-xl hover:bg-[#017050] transition-colors shadow-md w-full sm:w-auto bg-[#000000]">
     <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor">
       <path d="M3.46 2L15.35 14L18.42 10.9L3.46 2ZM3.46 22L15.35 10L18.42 13.1L3.46 22ZM16.32 15L20.24 12.63C21.25 12.02 21.25 11.98 20.24 11.37L16.32 9L15.5 12L16.32 15ZM3.46 2V22L14.7 12L3.46 2Z" />
     </svg>
