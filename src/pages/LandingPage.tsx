@@ -131,6 +131,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-[100dvh] bg-background text-foreground overflow-x-clip selection:bg-primary/20 selection:text-primary">
+
       {/* 1. Navigation Bar */}
       <nav className="sticky top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-border/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -265,7 +266,7 @@ export default function LandingPage() {
             >
               {/* Glow blobs behind phones */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-[#1C61CA]/10 rounded-full blur-3xl"></div>
+                <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-primary/10 rounded-full blur-3xl"></div>
               </div>
 
               {/* Manager Phone — tilted left, slightly behind */}
@@ -274,8 +275,8 @@ export default function LandingPage() {
                 animate={{ opacity: 1, y: 0, rotate: -6 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
                 whileHover={{ rotate: -2, scale: 1.03, zIndex: 20 }}
-                className="relative z-10 w-[120px] h-[250px] sm:w-[165px] sm:h-[345px] lg:w-[210px] lg:h-[440px] rounded-[2rem] lg:rounded-[2.5rem] shadow-2xl border-[4px] lg:border-[6px] border-[#dde5f0] overflow-hidden -mr-6 sm:-mr-8 lg:-mr-10 mt-6 sm:mt-9 lg:mt-12 cursor-pointer"
-                style={{ boxShadow: "0 30px 60px -12px rgba(28,97,202,0.2), 0 18px 36px -18px rgba(0,0,0,0.15)" }}
+                className="relative z-10 w-[120px] h-[250px] sm:w-[165px] sm:h-[345px] lg:w-[210px] lg:h-[440px] rounded-[2rem] lg:rounded-[2.5rem] shadow-2xl border-[3px] lg:border-[4px] border-slate-900 dark:border-slate-800 overflow-hidden -mr-6 sm:-mr-8 lg:-mr-10 mt-6 sm:mt-9 lg:mt-12 cursor-pointer"
+                style={{ boxShadow: "0 30px 60px -12px rgba(28,97,202,0.15), 0 18px 36px -18px rgba(0,0,0,0.2)" }}
               >
                 <img
                   src="/manager-app.png"
@@ -283,6 +284,8 @@ export default function LandingPage() {
                   className="w-full h-full object-cover object-top"
                   draggable={false}
                 />
+                {/* Glass shine overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 pointer-events-none z-30"></div>
               </motion.div>
 
               {/* Customer Phone — straight/slightly right, in front */}
@@ -291,8 +294,8 @@ export default function LandingPage() {
                 animate={{ opacity: 1, y: 0, rotate: 4 }}
                 transition={{ duration: 0.7, delay: 0.25 }}
                 whileHover={{ rotate: 0, scale: 1.04, zIndex: 30 }}
-                className="relative z-20 w-[130px] h-[270px] sm:w-[180px] sm:h-[378px] lg:w-[230px] lg:h-[480px] rounded-[2rem] lg:rounded-[2.8rem] shadow-2xl border-[4px] lg:border-[6px] border-[#bdd0ef] overflow-hidden -ml-6 sm:-ml-8 lg:-ml-10 -mt-4 sm:-mt-5 lg:-mt-6 cursor-pointer"
-                style={{ boxShadow: "0 40px 80px -16px rgba(28,97,202,0.25), 0 20px 40px -20px rgba(0,0,0,0.18)" }}
+                className="relative z-20 w-[130px] h-[270px] sm:w-[180px] sm:h-[378px] lg:w-[230px] lg:h-[480px] rounded-[2rem] lg:rounded-[2.8rem] shadow-2xl border-[3px] lg:border-[4px] border-slate-900 dark:border-slate-800 overflow-hidden -ml-6 sm:-ml-8 lg:-ml-10 -mt-4 sm:-mt-5 lg:-mt-6 cursor-pointer"
+                style={{ boxShadow: "0 40px 80px -16px rgba(28,97,202,0.2), 0 20px 40px -20px rgba(0,0,0,0.22)" }}
               >
                 <img
                   src="/customer-app.png"
@@ -300,8 +303,10 @@ export default function LandingPage() {
                   className="w-full h-full object-cover object-top"
                   draggable={false}
                 />
+                {/* Glass shine overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 pointer-events-none z-30"></div>
                 {/* Blue glow ring */}
-                <div className="absolute inset-0 rounded-[2.2rem] ring-2 ring-[#1C61CA]/25 pointer-events-none"></div>
+                <div className="absolute inset-0 rounded-[1.8rem] ring-2 ring-[#1C61CA]/10 pointer-events-none"></div>
               </motion.div>
             </motion.div>
           </div>
