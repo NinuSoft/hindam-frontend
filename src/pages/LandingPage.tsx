@@ -279,7 +279,7 @@ export default function LandingPage() {
                 style={{ boxShadow: "0 30px 60px -12px rgba(28,97,202,0.15), 0 18px 36px -18px rgba(0,0,0,0.2)" }}
               >
                 <img
-                  src="/manager-app.png"
+                  src={theme === "dark" ? "/manager-app-dark.jpg" : "/manager-app-light.jpg"}
                   alt="مدير هندام"
                   className="w-full h-full object-cover object-top"
                   draggable={false}
@@ -298,7 +298,7 @@ export default function LandingPage() {
                 style={{ boxShadow: "0 40px 80px -16px rgba(28,97,202,0.2), 0 20px 40px -20px rgba(0,0,0,0.22)" }}
               >
                 <img
-                  src="/customer-app.png"
+                  src={theme === "dark" ? "/customer-app-dark.jpg" : "/customer-app-light.jpg"}
                   alt="هندام للزبائن"
                   className="w-full h-full object-cover object-top"
                   draggable={false}
