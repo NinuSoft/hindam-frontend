@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const CUSTOMER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninusoft.hindam.customer";
 const MANAGER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninusoft.hindam.manager";
+const FAVICON_VERSION = "1";
 
 const GooglePlayBadge = ({ href = "#" }: { href?: string }) => (
   <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-white px-5 py-2.5 rounded-xl hover:bg-[#017050] transition-colors shadow-md w-full sm:w-auto bg-[#000000]">
@@ -105,12 +106,12 @@ export default function LandingPage() {
 
     if (theme === "dark") {
       root.classList.add("dark");
-      if (favicon) favicon.href = "/favicon-dark.png";
-      if (appleIcon) appleIcon.href = "/favicon-dark.png";
+      if (favicon) favicon.href = `/favicon-dark.png?v=${FAVICON_VERSION}`;
+      if (appleIcon) appleIcon.href = `/favicon-dark.png?v=${FAVICON_VERSION}`;
     } else {
       root.classList.remove("dark");
-      if (favicon) favicon.href = "/favicon-light.png";
-      if (appleIcon) appleIcon.href = "/favicon-light.png";
+      if (favicon) favicon.href = `/favicon-light.png?v=${FAVICON_VERSION}`;
+      if (appleIcon) appleIcon.href = `/favicon-light.png?v=${FAVICON_VERSION}`;
     }
     localStorage.setItem("theme", theme);
   }, [theme]);
