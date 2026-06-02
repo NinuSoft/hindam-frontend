@@ -100,10 +100,17 @@ export default function LandingPage() {
 
   useEffect(() => {
     const root = window.document.documentElement;
+    const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement | null;
+    const appleIcon = document.querySelector('link[rel="apple-touch-icon"]') as HTMLLinkElement | null;
+
     if (theme === "dark") {
       root.classList.add("dark");
+      if (favicon) favicon.href = "/favicon-dark.png";
+      if (appleIcon) appleIcon.href = "/favicon-dark.png";
     } else {
       root.classList.remove("dark");
+      if (favicon) favicon.href = "/favicon-light.png";
+      if (appleIcon) appleIcon.href = "/favicon-light.png";
     }
     localStorage.setItem("theme", theme);
   }, [theme]);
