@@ -264,11 +264,6 @@ export default function LandingPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[580px] flex items-center justify-center w-full"
             >
-              {/* Glow blobs behind phones */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-primary/10 rounded-full blur-3xl"></div>
-              </div>
-
               {/* Manager Phone — tilted left, slightly behind */}
               <motion.div
                 initial={{ opacity: 0, y: 30, rotate: -6 }}
@@ -276,16 +271,14 @@ export default function LandingPage() {
                 transition={{ duration: 0.7, delay: 0.4 }}
                 whileHover={{ rotate: -2, scale: 1.03, zIndex: 20 }}
                 className="relative z-10 w-[120px] h-[250px] sm:w-[165px] sm:h-[345px] lg:w-[210px] lg:h-[440px] rounded-[2rem] lg:rounded-[2.5rem] shadow-2xl border-[3px] lg:border-[4px] border-slate-900 dark:border-slate-800 overflow-hidden -mr-6 sm:-mr-8 lg:-mr-10 mt-6 sm:mt-9 lg:mt-12 cursor-pointer"
-                style={{ boxShadow: "0 30px 60px -12px rgba(28,97,202,0.15), 0 18px 36px -18px rgba(0,0,0,0.2)" }}
+                style={{ boxShadow: "0 30px 60px -12px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.3)" }}
               >
                 <img
-                  src={theme === "dark" ? "/manager-app-dark.jpg" : "/manager-app-light.jpg"}
+                  src={theme === "dark" ? "/manager-app-dark.png" : "/manager-app-light.png"}
                   alt="مدير هندام"
                   className="w-full h-full object-cover object-top"
                   draggable={false}
                 />
-                {/* Glass shine overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 pointer-events-none z-30"></div>
               </motion.div>
 
               {/* Customer Phone — straight/slightly right, in front */}
@@ -295,18 +288,14 @@ export default function LandingPage() {
                 transition={{ duration: 0.7, delay: 0.25 }}
                 whileHover={{ rotate: 0, scale: 1.04, zIndex: 30 }}
                 className="relative z-20 w-[130px] h-[270px] sm:w-[180px] sm:h-[378px] lg:w-[230px] lg:h-[480px] rounded-[2rem] lg:rounded-[2.8rem] shadow-2xl border-[3px] lg:border-[4px] border-slate-900 dark:border-slate-800 overflow-hidden -ml-6 sm:-ml-8 lg:-ml-10 -mt-4 sm:-mt-5 lg:-mt-6 cursor-pointer"
-                style={{ boxShadow: "0 40px 80px -16px rgba(28,97,202,0.2), 0 20px 40px -20px rgba(0,0,0,0.22)" }}
+                style={{ boxShadow: "0 40px 80px -16px rgba(0,0,0,0.3), 0 20px 40px -20px rgba(0,0,0,0.3)" }}
               >
                 <img
-                  src={theme === "dark" ? "/customer-app-dark.jpg" : "/customer-app-light.jpg"}
+                  src={theme === "dark" ? "/customer-app-dark.png" : "/customer-app-light.png"}
                   alt="هندام للزبائن"
                   className="w-full h-full object-cover object-top"
                   draggable={false}
                 />
-                {/* Glass shine overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 pointer-events-none z-30"></div>
-                {/* Blue glow ring */}
-                <div className="absolute inset-0 rounded-[1.8rem] ring-2 ring-[#1C61CA]/10 pointer-events-none"></div>
               </motion.div>
             </motion.div>
           </div>
