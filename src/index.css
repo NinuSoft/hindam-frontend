@@ -69,15 +69,16 @@
 
 /* LIGHT MODE */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(0, 0, 0, .10);
+  --badge-outline: rgba(0, 0, 0, .05);
 
   /* Automatic computation of border around primary / danger buttons */
-  --opaque-button-border-intensity: -8; /* In terms of percentages */
+  --opaque-button-border-intensity: -8;
+  /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0, 0, 0, .03);
+  --elevate-2: rgba(0, 0, 0, .08);
 
   --background: 0 0% 98%;
   --foreground: 216 47% 12%;
@@ -108,7 +109,7 @@
   --destructive-foreground: 0 0% 100%;
   --input: 216 20% 82%;
   --ring: 216 76% 45%;
-  
+
   --chart-1: 216 76% 45%;
   --chart-2: 161 60% 40%;
   --chart-3: 216 30% 92%;
@@ -118,8 +119,9 @@
   --app-font-sans: 'Cairo', sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
-  --radius: .5rem; /* 8px */
-  
+  --radius: .5rem;
+  /* 8px */
+
   --shadow-2xs: 0px 2px 0px 0px hsl(216 47% 12% / 0.08);
   --shadow-xs: 0px 2px 0px 0px hsl(216 47% 12% / 0.08);
   --shadow-sm: 0px 2px 0px 0px hsl(216 47% 12% / 0.08), 0px 1px 2px -1px hsl(216 47% 12% / 0.08);
@@ -163,14 +165,15 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(255, 255, 255, .10);
+  --badge-outline: rgba(255, 255, 255, .05);
 
-  --opaque-button-border-intensity: 9;  /* In terms of percentages */
+  --opaque-button-border-intensity: 9;
+  /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(255, 255, 255, .04);
+  --elevate-2: rgba(255, 255, 255, .09);
 
   --background: 216 50% 8%;
   --foreground: 216 20% 92%;
@@ -344,4 +347,17 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+}
+
+.bg-grid-glow {
+  background-image: radial-gradient(circle at 50% 50%, rgba(var(--primary), 0.15) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+}
+
+.dark .bg-grid-glow {
+  background-image: radial-gradient(circle at 50% 50%, rgba(216, 76, 55, 0.08) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }

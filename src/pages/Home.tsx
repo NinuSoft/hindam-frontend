@@ -1,7 +1,31 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Menu, X, QrCode, Clock, FileText, MapPin, Smartphone, WifiOff, Printer, Package, Users, Settings, Receipt, CheckCircle, Shield, Lock, Download, ChevronLeft, Sun, Moon } from "lucide-react";
+import { Menu, X, QrCode, Clock, FileText, MapPin, Smartphone, WifiOff, Printer, Package, Users, Settings, Receipt, CheckCircle, Shield, Lock, Download, ChevronLeft, Sun, Moon, Globe, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import howItWorksData from "@/data/howItWorks.json";
+import featuresData from "@/data/features.json";
+import faqsData from "@/data/faqs.json";
+
+const IconMap: Record<string, React.ComponentType<any>> = {
+  QrCode,
+  Clock,
+  FileText,
+  MapPin,
+  Smartphone,
+  WifiOff,
+  Printer,
+  Package,
+  Users,
+  Settings,
+  Receipt,
+  CheckCircle
+};
+
+const getIcon = (name: string, size = 28, className = "") => {
+  const IconComponent = IconMap[name];
+  if (!IconComponent) return null;
+  return <IconComponent size={size} className={className} />;
+};
 
 const CUSTOMER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninusoft.hindam.customer";
 const MANAGER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninusoft.hindam.manager";
@@ -59,29 +83,7 @@ const DownloadCard = ({ title, description, href, icon, variant }: DownloadCardP
   );
 };
 
-const faqs = [
-  {
-    question: "هل يتطلب تطبيق الزبون تسجيل دخول أو إنشاء حساب؟",
-    answer: "لا، تطبيق هندام للزبائن مصمم ليوفر أقصى درجات الخصوصية والسهولة. يمكنك تتبع طلباتك مباشرة عن طريق مسح رمز QR الموجود على الفاتورة دون الحاجة لإدخال أي معلومات شخصية، رقم هاتف، أو كلمة مرور."
-  },
-  {
-    question: "كيف يمكنني كمشغل أو مغسلة استخدام نظام هندام؟",
-    answer: "يمكنك تحميل تطبيق \"مدير هندام للمشاغل\" من متجر Google Play، وإكمال إعداد حساب مشغلك خلال دقيقة واحدة لتتمكن بعدها من إضافة الطلبات، طباعة فواتير الـ QR، وإدارة عملائك بكل سلاسة."
-  },
-  {
-    question: "هل يعمل تطبيق مدير هندام بدون توفر اتصال بالإنترنت؟",
-    answer: "نعم! يدعم تطبيق المدير العمل بنظام Offline-First بالكامل. يمكنك تسجيل الزبائن، إضافة القياسات، وإنشاء الطلبات دون إنترنت، وسيقوم التطبيق بمزامنة كافة البيانات تلقائياً بمجرد عودة الاتصال."
-  },
-  {
-    question: "كيف يمكنني ربط طابعة الفواتير الحرارية بالتطبيق؟",
-    answer: "يدعم تطبيق مدير هندام الاقتران المباشر عبر البلوتوث (Bluetooth) مع مختلف الطابعات الحرارية المحمولة والمكتبية (مقاس 58 ملم و 80 ملم) لطباعة إيصالات احترافية تحتوي على رمز QR الخاص بالطلب."
-  },
-  {
-    question: "ما هي التكلفة المترتبة على استخدام نظام هندام؟",
-    answer: "تطبيق هندام للزبائن مجاني تماماً بنسبة 100%. أما بالنسبة لأصحاب المشاغل والمغاسل، فإن تطبيق \"مدير هندام\" يوفر باقات اشتراك مرنة واقتصادية تناسب جميع أحجام الأعمال مع فترة تجريبية مجانية بالكامل للبدء."
-  }
-];
-export default function LandingPage() {
+export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"customer" | "manager">("customer");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -89,6 +91,7 @@ export default function LandingPage() {
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
+
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme");
@@ -138,7 +141,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-background text-foreground overflow-x-clip selection:bg-primary/20 selection:text-primary">
+    <div dir="rtl" className="min-h-[100dvh] bg-background text-foreground overflow-x-clip selection:bg-primary/20 selection:text-primary">
 
       {/* 1. Navigation Bar */}
       <nav className="sticky top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-border/50 shadow-sm">
@@ -309,8 +312,11 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+
+
       {/* 3. Ecosystem Overview Section */}
-      <section id="ecosystem" className="py-14 md:py-24 bg-muted/30 border-y border-border">
+      <section id="ecosystem" className="py-14 md:py-24 bg-muted/30 border-b border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -439,45 +445,21 @@ export default function LandingPage() {
                 transition={{ duration: 0.3 }}
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <QrCode size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">مسح ذكي وسريع</h3>
-                  <p className="text-muted-foreground leading-relaxed">وجه كاميرا هاتفك نحو رمز الاستجابة السريعة على فاتورتك للوصول الفوري إلى طلبك، أو أدخل رقم الطلب يدوياً.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <Clock size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تتبع لحظي للحالة</h3>
-                  <p className="text-muted-foreground leading-relaxed">تعرف على حالة ملابسك فوراً: قيد التنفيذ، جاهز للاستلام، أو مُسلّم — لتوفر على نفسك عناء الانتظار.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <FileText size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تفاصيل الفاتورة الشاملة</h3>
-                  <p className="text-muted-foreground leading-relaxed">راجع كل تفاصيل طلبك بشفافية تامة: نوع الخدمات، الكمية، الأسعار، المبالغ المدفوعة، والمبلغ المتبقي.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <MapPin size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">معلومات المشغل</h3>
-                  <p className="text-muted-foreground leading-relaxed">وصول سريع لاسم المشغل، رقم التواصل، وموقعه الجغرافي لتسهيل عملية استلام طلبك عندما يكون جاهزاً.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow lg:col-span-2">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <Smartphone size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">واجهة ذكية وأنيقة</h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-2xl">تصميم مريح للعين يتفاعل مع حالة طلبك، ويعرض لك الإشعارات المهمة عندما تكون ملابسك جاهزة.</p>
-                </div>
+                {featuresData.customer.map((feat, index) => {
+                  const isWide = index === featuresData.customer.length - 1;
+                  return (
+                    <div
+                      key={feat.id}
+                      className={`bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow ${isWide ? 'lg:col-span-2' : ''}`}
+                    >
+                      <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
+                        {getIcon(feat.iconName, 28)}
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{feat.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{feat.description}</p>
+                    </div>
+                  );
+                })}
               </motion.div>
             )}
 
@@ -491,112 +473,69 @@ export default function LandingPage() {
                 transition={{ duration: 0.3 }}
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <WifiOff size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">يعمل بدون إنترنت (Offline-First)</h3>
-                  <p className="text-muted-foreground leading-relaxed">انقطع الإنترنت؟ لا مشكلة! استمر في إضافة الزبائن وإنشاء الطلبات. التطبيق يزامن البيانات فور عودة الاتصال.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <Printer size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">طباعة الفواتير الحرارية</h3>
-                  <p className="text-muted-foreground leading-relaxed">يدعم الاقتران السريع بطابعات البلوتوث لطباعة فواتير أنيقة تحتوي على تفاصيل الطلب ورمز QR فريد.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <Package size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">إدارة مرنة للطلبات</h3>
-                  <p className="text-muted-foreground leading-relaxed">غيّر حالة الطلب بلمسة واحدة: قيد التنفيذ — جاهز — مُسلّم. إدارة سلسة وبصرية.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <Users size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">قاعدة بيانات زبائنك</h3>
-                  <p className="text-muted-foreground leading-relaxed">احتفظ بسجل منظم لعملائك يشمل أرقام هواتفهم، قياساتهم المفصلة، وتاريخ طلباتهم السابقة.</p>
-                </div>
-
-                <div className="bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow lg:col-span-2">
-                  <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
-                    <Settings size={28} />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تخصيص كامل لمشغلك</h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-2xl">من خلال معالج الإعداد الذكي، خصّص التطبيق ليعرض أدوات الخياطة فقط، المغسلة، أو كليهما معاً.</p>
-                </div>
+                {featuresData.manager.map((feat, index) => {
+                  const isWide = index === featuresData.manager.length - 1;
+                  return (
+                    <div
+                      key={feat.id}
+                      className={`bg-card border border-border p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-shadow ${isWide ? 'lg:col-span-2' : ''}`}
+                    >
+                      <div className="w-11 h-11 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6">
+                        {getIcon(feat.iconName, 28)}
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{feat.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{feat.description}</p>
+                    </div>
+                  );
+                })}
               </motion.div>
             )}
           </div>
 
         </div>
       </section>
-      {/* 5. How It Works */}
-      <section id="how-it-works" className="py-14 md:py-24 bg-primary/5">
+      {/* 5. How It Works - Clean Static Steps Layout */}
+      <section id="how-it-works" className="py-16 md:py-24 bg-muted/40 dark:bg-[#070c18]/40 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-3 md:mb-4">كيف يعمل هندام؟</h2>
-            <p className="text-sm md:text-base lg:text-lg text-muted-foreground">ثلاث خطوات بسيطة فقط لتتبع أناقتك</p>
+            <p className="text-sm md:text-base lg:text-lg text-muted-foreground">ثلاث خطوات بسيطة لتتبع أناقتك بسهولة</p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between relative">
-            {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 border-t-2 border-dashed border-primary/30 z-0"></div>
+          <div className="relative grid md:grid-cols-3 gap-8 md:gap-12 mt-12">
+            {/* Connecting dashed line for desktop */}
+            <div className="hidden md:block absolute top-[44%] left-[15%] right-[15%] h-[2px] border-t-2 border-dashed border-primary/20 -z-10" />
 
-            {/* Step 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center text-center flex-1 relative z-10 mb-12 md:mb-0 px-4"
-            >
-              <div className="w-24 h-24 bg-white dark:bg-card rounded-full flex items-center justify-center shadow-lg border-4 border-primary/10 dark:border-primary/20 mb-6 relative group">
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-110 transition-transform">1</div>
-                <Receipt size={36} className="text-primary" />
-              </div>
-              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">استلم فاتورتك</h3>
-              <p className="text-muted-foreground">استلم فاتورتك من المشغل أو المغسلة التي تستخدم نظام هندام للإدارة.</p>
-            </motion.div>
+            {howItWorksData.map((step, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                whileHover={{ y: -8 }}
+                className="bg-card/60 backdrop-blur-md border border-border p-8 rounded-3xl relative overflow-hidden shadow-xs hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col items-center text-center group"
+              >
+                {/* Large Background Step Number */}
+                <div className="absolute top-2 left-4 text-6xl font-black text-primary/5 select-none font-mono group-hover:text-primary/10 transition-colors duration-300">
+                  0{idx + 1}
+                </div>
 
-            {/* Step 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col items-center text-center flex-1 relative z-10 mb-12 md:mb-0 px-4"
-            >
-              <div className="w-24 h-24 bg-white dark:bg-card rounded-full flex items-center justify-center shadow-lg border-4 border-primary/10 dark:border-primary/20 mb-6 relative group">
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-110 transition-transform">2</div>
-                <QrCode size={36} className="text-primary" />
-              </div>
-              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">امسح رمز الـ QR</h3>
-              <p className="text-muted-foreground">افتح التطبيق وقم بمسح رمز الـ QR الموجود على الفاتورة.</p>
-            </motion.div>
+                <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 relative z-10 shadow-inner group-hover:scale-110 transition-transform duration-300">
+                  {getIcon(step.iconName, 32)}
+                </div>
 
-            {/* Step 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-col items-center text-center flex-1 relative z-10 px-4"
-            >
-              <div className="w-24 h-24 bg-white dark:bg-card rounded-full flex items-center justify-center shadow-lg border-4 border-primary/10 dark:border-primary/20 mb-6 relative group">
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-110 transition-transform">3</div>
-                <CheckCircle size={36} className="text-primary" />
-              </div>
-              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">تابع وانتظر الجاهزية</h3>
-              <p className="text-muted-foreground">تابع حالة ملابسك، وتوجه لاستلامها فور ظهور حالة جاهز للاستلام.</p>
-            </motion.div>
+                <h3 className="font-bold text-xl mb-3 relative z-10">{step.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm relative z-10 max-w-sm">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
+
+
       {/* 6. Security & Trust */}
       <section id="trust" className="py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -637,7 +576,7 @@ export default function LandingPage() {
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
+            {faqsData.map((faq, index) => (
               <div key={index} className="border border-border rounded-2xl bg-card/50 backdrop-blur-sm overflow-hidden transition-all duration-300">
                 <button
                   onClick={() => toggleFaq(index)}
