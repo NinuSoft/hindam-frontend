@@ -159,13 +159,9 @@
       /* Update trailing glow gradient */
       var from = Math.max(0, progress * 100 - 22).toFixed(1);
       var mid  = Math.max(0, progress * 100 - 5).toFixed(1);
-      scanGlow.style.background = [
-        'linear-gradient(to bottom,',
-        'transparent '          + from + '%,',
-        'rgba(26,115,232,.12) ' + mid  + '%,',
-        'rgba(26,115,232,.28) ' + pct  + '%,',
-        'transparent '          + pct  + '%)'
-      ].join(' ');
+      scanGlow.style.setProperty('--scan-from', from + '%');
+      scanGlow.style.setProperty('--scan-mid', mid + '%');
+      scanGlow.style.setProperty('--scan-pct', pct + '%');
       scanGlow.style.opacity = '1';
 
       /* Progress bar fills up to 60% during the scan line animation */

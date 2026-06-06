@@ -31,6 +31,11 @@
       if (isDark) {
         document.documentElement.classList.add('dark');
       }
+      // Inject body loading background style dynamically before body is parsed/painted
+      const bgStyle = document.createElement('style');
+      bgStyle.innerHTML = `body.hd-loading { background: ${isDark ? '#040813' : '#f5f7fa'} !important; }`;
+      document.head.appendChild(bgStyle);
+
       const faviconUrl = isDark ? `/favicon-dark.png?v=${FAVICON_VERSION}` : `/favicon-light.png?v=${FAVICON_VERSION}`;
       const favicon = document.querySelector('link[rel="icon"]');
       if (favicon) favicon.setAttribute('href', faviconUrl);
@@ -49,7 +54,7 @@
   <link rel="stylesheet" href="/intro.css">
 </head>
 
-<body class="hd-loading" style="background: #040813;">
+<body class="hd-loading">
 
   <!-- Intro overlay — rendered at byte 0, before the React bundle loads -->
   <div id="hd-intro" role="dialog" aria-label="هندام جاري التحميل" aria-live="polite" style="display: none;">
@@ -63,9 +68,10 @@
         <div class="hd-bracket hd-tr"></div>
         <div class="hd-bracket hd-bl"></div>
         <div class="hd-bracket hd-br"></div>
+        <img src="/logo_dark.webp" alt="هندام" class="hd-logo hd-logo-dark" />
+        <img src="/logo_light.webp" alt="هندام" class="hd-logo hd-logo-light" />
         <div id="hd-scan-glow"></div>
         <div id="hd-scan"></div>
-        <img src="/favicon-light.png" alt="هندام" class="hd-logo" id="hd-logo" />
       </div>
 
       <!-- Brand name -->

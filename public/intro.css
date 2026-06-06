@@ -15,11 +15,39 @@
 }
 
 #hd-intro {
+  /* Default: Light Mode */
+  --primary-color: hsl(216, 76%, 45%);
+  --primary-color-60: hsl(216, 76%, 55%);
+  --bg: hsl(216, 30%, 97%);
+  --dim: hsl(216, 15%, 50%);
+  --dimmer: hsl(216, 20%, 88%);
+  --text-main: hsl(216, 47%, 12%);
+  --glow-color-1: rgba(26, 115, 232, 0.08);
+  --glow-color-2: rgba(26, 115, 232, 0.04);
+  --scan-shadow-1: hsla(216, 76%, 45%, 0.4);
+  --scan-shadow-2: hsla(216, 76%, 45%, 0.15);
+  --bar-shadow: hsla(216, 76%, 45%, 0.35);
+  --primary-rgb: 28, 97, 202;
+}
+
+.dark #hd-intro {
+  /* Dark Mode */
   --primary-color: hsl(216, 76%, 55%);
   --primary-color-60: hsl(216, 76%, 65%);
   --bg: hsl(216, 50%, 5%);
   --dim: hsl(216, 20%, 45%);
   --dimmer: hsl(216, 20%, 18%);
+  --text-main: #ffffff;
+  --glow-color-1: rgba(26, 115, 232, 0.13);
+  --glow-color-2: rgba(26, 115, 232, 0.06);
+  --scan-shadow-1: hsla(216, 76%, 55%, 0.7);
+  --scan-shadow-2: hsla(216, 76%, 55%, 0.3);
+  --bar-shadow: hsla(216, 76%, 55%, 0.6);
+  --primary-rgb: 53, 123, 227;
+}
+
+body.hd-loading {
+  background: var(--bg) !important;
 }
 
 /* ── Overlay container ──────────────────────────────────────────────────── */
@@ -69,7 +97,7 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(26, 115, 232, .13) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--glow-color-1) 0%, transparent 70%);
 }
 
 .hd-glow-2 {
@@ -77,7 +105,7 @@
   height: 280px;
   bottom: 20%;
   right: 20%;
-  background: radial-gradient(circle, rgba(26, 115, 232, .06) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--glow-color-2) 0%, transparent 70%);
 }
 
 /* ── Stage ──────────────────────────────────────────────────────────────── */
@@ -106,30 +134,49 @@
 /* ── Logo wrapper ───────────────────────────────────────────────────────── */
 .hd-logo-wrap {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
 }
 
 @media (min-width: 480px) {
   .hd-logo-wrap {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
   }
 }
 
 .hd-logo {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
   /* Optically center the logo */
   transform: scale(0.9);
   transition: filter 0.5s ease, transform 0.5s ease;
 }
 
+.hd-logo-dark {
+  display: none !important;
+}
+
+.dark .hd-logo-dark {
+  display: block !important;
+}
+
+.dark .hd-logo-light {
+  display: none !important;
+}
+
 .hd-done .hd-logo {
-  filter: drop-shadow(0 0 28px hsla(216, 76%, 55%, .85)) drop-shadow(0 0 60px hsla(216, 76%, 55%, .4));
   transform: scale(0.97);
+}
+
+.dark .hd-done .hd-logo-dark {
+  filter: drop-shadow(0 0 28px hsla(216, 76%, 55%, .85)) drop-shadow(0 0 60px hsla(216, 76%, 55%, .4));
+}
+
+.hd-done .hd-logo-light {
+  filter: drop-shadow(0 0 28px hsla(216, 76%, 55%, .35)) drop-shadow(0 0 60px hsla(216, 76%, 55%, .15));
 }
 
 /* ── Corner brackets ────────────────────────────────────────────────────── */
@@ -183,9 +230,10 @@
   right: 0;
   height: 2px;
   top: 0%;
+  z-index: 5;
   /* driven by intro.js */
   background: linear-gradient(to right, transparent, var(--primary-color), transparent);
-  box-shadow: 0 0 12px 2px hsla(216, 76%, 55%, .7), 0 0 30px 6px hsla(216, 76%, 55%, .3);
+  box-shadow: 0 0 12px 2px var(--scan-shadow-1), 0 0 30px 6px var(--scan-shadow-2);
   opacity: 0;
   pointer-events: none;
   will-change: top;
@@ -198,6 +246,26 @@
   pointer-events: none;
   border-radius: 1rem;
   opacity: 0;
+  z-index: 4;
+  /* driven by intro.js */
+  --scan-from: 0%;
+  --scan-mid: 0%;
+  --scan-pct: 0%;
+  background: linear-gradient(to bottom,
+    transparent var(--scan-from),
+    rgba(28, 97, 202, 0.12) var(--scan-mid),
+    rgba(28, 97, 202, 0.28) var(--scan-pct),
+    transparent var(--scan-pct)
+  );
+}
+
+.dark #hd-scan-glow {
+  background: linear-gradient(to bottom,
+    transparent var(--scan-from),
+    rgba(53, 123, 227, 0.15) var(--scan-mid),
+    rgba(53, 123, 227, 0.35) var(--scan-pct),
+    transparent var(--scan-pct)
+  );
 }
 
 /* ── Brand text ─────────────────────────────────────────────────────────── */
@@ -210,7 +278,7 @@
   font-size: 2.2rem;
   font-weight: 900;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-main);
   line-height: 1;
 }
 
@@ -247,7 +315,8 @@
   border-radius: 50%;
   background: var(--primary-color);
   flex-shrink: 0;
-  margin-left: 8px; /* Margin for Arabic spacing */
+  margin-left: 8px;
+  /* Margin for Arabic spacing */
 }
 
 .hd-dot-idle {
@@ -309,7 +378,7 @@
   height: 100%;
   width: 0%;
   background: var(--primary-color);
-  box-shadow: 0 0 8px hsla(216, 76%, 55%, .6);
+  box-shadow: 0 0 8px var(--bar-shadow);
   border-radius: 99px;
   will-change: width;
   transition: width 16ms linear;
