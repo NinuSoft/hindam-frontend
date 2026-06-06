@@ -14,6 +14,7 @@
 
   var intro = document.getElementById('hd-intro');
   var sessionBypass = (sessionStorage.getItem('hd_intro_seen') === '1');
+  var isDark = document.documentElement.classList.contains('dark');
 
   /* ── Config ─────────────────────────────────────────────────────────── */
   var SCAN_MS = 1400;   // scan animation duration (ms)
@@ -159,9 +160,14 @@
       /* Update trailing glow gradient */
       var from = Math.max(0, progress * 100 - 22).toFixed(1);
       var mid  = Math.max(0, progress * 100 - 5).toFixed(1);
-      scanGlow.style.setProperty('--scan-from', from + '%');
-      scanGlow.style.setProperty('--scan-mid', mid + '%');
-      scanGlow.style.setProperty('--scan-pct', pct + '%');
+      var rgb = isDark ? '53,123,227' : '28,97,202';
+      scanGlow.style.background = [
+        'linear-gradient(to bottom,',
+        'transparent '          + from + '%,',
+        'rgba(' + rgb + ',.12) ' + mid  + '%,',
+        'rgba(' + rgb + ',.28) ' + pct  + '%,',
+        'transparent '          + pct  + '%)'
+      ].join(' ');
       scanGlow.style.opacity = '1';
 
       /* Progress bar fills up to 60% during the scan line animation */

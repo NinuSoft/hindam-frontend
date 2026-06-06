@@ -247,25 +247,6 @@ body.hd-loading {
   border-radius: 1rem;
   opacity: 0;
   z-index: 4;
-  /* driven by intro.js */
-  --scan-from: 0%;
-  --scan-mid: 0%;
-  --scan-pct: 0%;
-  background: linear-gradient(to bottom,
-    transparent var(--scan-from),
-    rgba(28, 97, 202, 0.12) var(--scan-mid),
-    rgba(28, 97, 202, 0.28) var(--scan-pct),
-    transparent var(--scan-pct)
-  );
-}
-
-.dark #hd-scan-glow {
-  background: linear-gradient(to bottom,
-    transparent var(--scan-from),
-    rgba(53, 123, 227, 0.15) var(--scan-mid),
-    rgba(53, 123, 227, 0.35) var(--scan-pct),
-    transparent var(--scan-pct)
-  );
 }
 
 /* ── Brand text ─────────────────────────────────────────────────────────── */
