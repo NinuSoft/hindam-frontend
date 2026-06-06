@@ -26,8 +26,8 @@
     (function () {
       const FAVICON_VERSION = '1';
       const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      // Default to light theme (only use dark if explicitly saved as dark)
+      const isDark = savedTheme === 'dark';
       if (isDark) {
         document.documentElement.classList.add('dark');
       }
