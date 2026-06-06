@@ -48,10 +48,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300..1000&display=swap" rel="stylesheet">
 
   <!-- Preload Intro Screen script to download in parallel while CSS blocks paint -->
-  <link rel="preload" as="script" href="/intro.js?v=2" />
+  <link rel="preload" as="script" href="/intro.js" />
 
   <!-- Intro screen styles — loaded before any JS so overlay paints instantly -->
-  <link rel="stylesheet" href="/intro.css?v=2">
+  <link rel="stylesheet" href="/intro.css">
 </head>
 
 <body class="hd-loading">
@@ -99,7 +99,7 @@
   <script type="module" src="/src/main.tsx"></script>
 
   <!-- Intro controller — runs synchronously after overlay HTML is parsed -->
-  <script src="/intro.js?v=2"></script>
+  <script src="/intro.js"></script>
 </body>
 
 </html>
