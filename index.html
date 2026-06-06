@@ -41,11 +41,59 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300..1000&display=swap" rel="stylesheet">
+
+  <!-- Preload Intro Screen script to download in parallel while CSS blocks paint -->
+  <link rel="preload" as="script" href="/intro.js" />
+
+  <!-- Intro screen styles — loaded before any JS so overlay paints instantly -->
+  <link rel="stylesheet" href="/intro.css">
 </head>
 
-<body>
+<body class="hd-loading" style="background: #040813;">
+
+  <!-- Intro overlay — rendered at byte 0, before the React bundle loads -->
+  <div id="hd-intro" role="dialog" aria-label="هندام جاري التحميل" aria-live="polite" style="display: none;">
+    <div class="hd-glow hd-glow-1"></div>
+    <div class="hd-glow hd-glow-2"></div>
+
+    <div class="hd-stage">
+      <!-- Logo + scan -->
+      <div class="hd-logo-wrap" id="hd-logo-wrap">
+        <div class="hd-bracket hd-tl"></div>
+        <div class="hd-bracket hd-tr"></div>
+        <div class="hd-bracket hd-bl"></div>
+        <div class="hd-bracket hd-br"></div>
+        <div id="hd-scan-glow"></div>
+        <div id="hd-scan"></div>
+        <img src="/favicon-light.png" alt="هندام" class="hd-logo" id="hd-logo" />
+      </div>
+
+      <!-- Brand name -->
+      <div class="hd-brand">
+        <h1>هنـ<span>دام</span></h1>
+        <p>تتبع طلبات الخياطة والغسيل</p>
+      </div>
+
+      <!-- Status -->
+      <div id="hd-status">
+        <span class="hd-dot hd-dot-idle" id="hd-dot"></span>
+        <span id="hd-status-text">جاري التهيئة&hellip;</span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="hd-bar-track">
+        <div id="hd-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
   <div id="root"></div>
+
+  <!-- React bundle (Vite module) -->
   <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Intro controller — runs synchronously after overlay HTML is parsed -->
+  <script src="/intro.js"></script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import howItWorksData from "@/data/howItWorks.json";
 import featuresData from "@/data/features.json";
 import faqsData from "@/data/faqs.json";
+import IntroScreen from "@/components/IntroScreen";
 
 const IconMap: Record<string, React.ComponentType<any>> = {
   QrCode,
@@ -84,6 +85,15 @@ const DownloadCard = ({ title, description, href, icon, variant }: DownloadCardP
 };
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(() => {
+    return !!document.getElementById("hd-intro");
+  });
+
+  const handleIntroDone = () => {
+    sessionStorage.setItem("hd_intro_seen", "1");
+    setShowIntro(false);
+  };
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"customer" | "manager">("customer");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -142,6 +152,8 @@ export default function Home() {
 
   return (
     <div dir="rtl" className="min-h-[100dvh] bg-background text-foreground overflow-x-clip selection:bg-primary/20 selection:text-primary">
+      {/* Animated Intro Screen */}
+      <IntroScreen onComplete={handleIntroDone} />
 
       {/* 1. Navigation Bar */}
       <nav className="sticky top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-border/50 shadow-sm">

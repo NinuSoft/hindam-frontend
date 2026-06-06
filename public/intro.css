@@ -1,0 +1,321 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   Hindam — Instant Intro Screen Styles
+   Served as a static asset from /public/intro.css
+   Loaded in <head> before any JS so styles are ready at byte 0.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Reset / base ──────────────────────────────────────────────────────── */
+#hd-intro,
+#hd-intro *,
+#hd-intro *::before,
+#hd-intro *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#hd-intro {
+  --primary-color: hsl(216, 76%, 55%);
+  --primary-color-60: hsl(216, 76%, 65%);
+  --bg: hsl(216, 50%, 5%);
+  --dim: hsl(216, 20%, 45%);
+  --dimmer: hsl(216, 20%, 18%);
+}
+
+/* ── Overlay container ──────────────────────────────────────────────────── */
+#hd-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-family: 'Cairo', sans-serif;
+  overflow: hidden;
+  /* Fade-out transition — .hd-exit class added by intro.js */
+  transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+
+#hd-intro.hd-exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ── Grid lines ─────────────────────────────────────────────────────────── */
+#hd-intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(26, 115, 232, .06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 115, 232, .06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ── Ambient glow ───────────────────────────────────────────────────────── */
+.hd-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hd-glow-1 {
+  width: 520px;
+  height: 520px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(26, 115, 232, .13) 0%, transparent 70%);
+}
+
+.hd-glow-2 {
+  width: 280px;
+  height: 280px;
+  bottom: 20%;
+  right: 20%;
+  background: radial-gradient(circle, rgba(26, 115, 232, .06) 0%, transparent 70%);
+}
+
+/* ── Stage ──────────────────────────────────────────────────────────────── */
+.hd-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 1;
+  animation: hd-fade-in 0.5s ease forwards;
+}
+
+@keyframes hd-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Logo wrapper ───────────────────────────────────────────────────────── */
+.hd-logo-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+@media (min-width: 480px) {
+  .hd-logo-wrap {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.hd-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  /* Optically center the logo */
+  transform: scale(0.9);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.hd-done .hd-logo {
+  filter: drop-shadow(0 0 28px hsla(216, 76%, 55%, .85)) drop-shadow(0 0 60px hsla(216, 76%, 55%, .4));
+  transform: scale(0.97);
+}
+
+/* ── Corner brackets ────────────────────────────────────────────────────── */
+.hd-bracket {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--dimmer);
+  border-style: solid;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  pointer-events: none;
+}
+
+.hd-done .hd-bracket {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px var(--primary-color);
+}
+
+.hd-tl {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+  border-radius: 4px 0 0 0;
+}
+
+.hd-tr {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+  border-radius: 0 4px 0 0;
+}
+
+.hd-bl {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 2px 2px;
+  border-radius: 0 0 0 4px;
+}
+
+.hd-br {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+  border-radius: 0 0 4px 0;
+}
+
+/* ── Scan line ──────────────────────────────────────────────────────────── */
+#hd-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  top: 0%;
+  /* driven by intro.js */
+  background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+  box-shadow: 0 0 12px 2px hsla(216, 76%, 55%, .7), 0 0 30px 6px hsla(216, 76%, 55%, .3);
+  opacity: 0;
+  pointer-events: none;
+  will-change: top;
+}
+
+/* ── Scan glow overlay ──────────────────────────────────────────────────── */
+#hd-scan-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 1rem;
+  opacity: 0;
+}
+
+/* ── Brand text ─────────────────────────────────────────────────────────── */
+.hd-brand {
+  text-align: center;
+  animation: hd-fade-in 0.5s ease 0.35s both;
+}
+
+.hd-brand h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1;
+}
+
+@media (min-width: 480px) {
+  .hd-brand h1 {
+    font-size: 2.6rem;
+  }
+}
+
+.hd-brand h1 span {
+  color: var(--primary-color);
+}
+
+#hd-intro .hd-brand p {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--dim);
+  margin-top: 0.75rem;
+}
+
+/* ── Status text ────────────────────────────────────────────────────────── */
+#hd-status {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  animation: hd-fade-in 0.5s ease 0.65s both;
+}
+
+.hd-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  flex-shrink: 0;
+  margin-left: 8px; /* Margin for Arabic spacing */
+}
+
+.hd-dot-idle {
+  animation: hd-pulse 1.8s ease-in-out infinite;
+}
+
+.hd-dot-scan {
+  animation: hd-ping 0.8s ease-in-out infinite;
+}
+
+@keyframes hd-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .4;
+    transform: scale(.8);
+  }
+}
+
+@keyframes hd-ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* ── Progress bar ───────────────────────────────────────────────────────── */
+.hd-bar-track {
+  width: 200px;
+  height: 2px;
+  background: var(--dimmer);
+  border-radius: 99px;
+  overflow: hidden;
+  animation: hd-fade-in 0.5s ease 0.65s both;
+}
+
+@media (min-width: 480px) {
+  .hd-bar-track {
+    width: 260px;
+  }
+}
+
+#hd-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary-color);
+  box-shadow: 0 0 8px hsla(216, 76%, 55%, .6);
+  border-radius: 99px;
+  will-change: width;
+  transition: width 16ms linear;
+}
+
+/* ── Hide root content while intro shows (prevents flash) ───────────────── */
+body.hd-loading #root {
+  visibility: hidden;
+}
