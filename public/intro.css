@@ -24,8 +24,8 @@
   --text-main: hsl(216, 47%, 12%);
   --glow-color-1: rgba(26, 115, 232, 0.08);
   --glow-color-2: rgba(26, 115, 232, 0.04);
-  --scan-shadow-1: hsla(216, 76%, 45%, 0.4);
-  --scan-shadow-2: hsla(216, 76%, 45%, 0.15);
+  --scan-shadow-1: hsla(216, 76%, 45%, 0.7);
+  --scan-shadow-2: hsla(216, 76%, 45%, 0.3);
   --bar-shadow: hsla(216, 76%, 45%, 0.35);
   --primary-rgb: 28, 97, 202;
 }
@@ -230,7 +230,6 @@ body.hd-loading {
   right: 0;
   height: 2px;
   top: 0%;
-  z-index: 5;
   /* driven by intro.js */
   background: linear-gradient(to right, transparent, var(--primary-color), transparent);
   box-shadow: 0 0 12px 2px var(--scan-shadow-1), 0 0 30px 6px var(--scan-shadow-2);
@@ -246,7 +245,6 @@ body.hd-loading {
   pointer-events: none;
   border-radius: 1rem;
   opacity: 0;
-  z-index: 4;
 }
 
 /* ── Brand text ─────────────────────────────────────────────────────────── */
