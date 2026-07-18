@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import { Menu, X, QrCode, Clock, FileText, MapPin, Smartphone, WifiOff, Printer, Package, Users, Settings, Receipt, CheckCircle, Shield, Lock, Download, ChevronLeft, Sun, Moon, Globe, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -30,6 +31,8 @@ const getIcon = (name: string, size = 28, className = "") => {
 
 const CUSTOMER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninusoft.hindam.customer";
 const MANAGER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninusoft.hindam.manager";
+const MANAGER_PRIVACY_POLICY_URL = "https://ninusoft.com/apps/hindam-manager/privacy-policy";
+const CUSTOMER_PRIVACY_POLICY_URL = "https://ninusoft.com/apps/hindam-customer/privacy-policy";
 const FAVICON_VERSION = "1";
 
 const GooglePlayBadge = ({ href = "#" }: { href?: string }) => (
@@ -648,8 +651,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Legal links */}
         <div className="max-w-7xl mx-auto px-4 mt-20 pt-8 border-t border-white/10 text-center relative z-10">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-4 text-sm text-white/60">
+            <a href={MANAGER_PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              سياسة الخصوصية (مدير هندام)
+            </a>
+            <a href={CUSTOMER_PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              سياسة الخصوصية (هندام للزبائن)
+            </a>
+            <Link href="/refund-policy" className="hover:text-white transition-colors">
+              سياسة الاسترجاع
+            </Link>
+            <Link href="/terms-conditions" className="hover:text-white transition-colors">
+              الشروط والأحكام
+            </Link>
+          </div>
           <p className="text-sm text-white/50">
             جميع الحقوق محفوظة &copy; 2026 — تطبيق مقدم من شركة <span className="font-bold text-white/80">NinuSoft</span> للحلول البرمجية
           </p>
