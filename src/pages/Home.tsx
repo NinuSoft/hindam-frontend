@@ -132,6 +132,27 @@ export default function Home() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  // Handle initial scroll to anchor/hash on mount after intro is done
+  useEffect(() => {
+    let timer: NodeJS.Timeout | undefined;
+    if (!showIntro) {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace("#", "");
+        const el = document.getElementById(id);
+        if (el) {
+          // Use a tiny timeout to ensure layout is fully calculated
+          timer = setTimeout(() => {
+            el.scrollIntoView({ behavior: "instant" });
+          }, 100);
+        }
+      }
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [showIntro]);
+
   // Sync the URL hash to whichever section is in view (scroll-spy), and drive
   // active nav-item highlighting. Delayed briefly so it doesn't fight an
   // incoming #anchor deep link's initial native scroll.
