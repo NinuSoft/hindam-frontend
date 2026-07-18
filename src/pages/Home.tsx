@@ -100,6 +100,7 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"customer" | "manager">("customer");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [activeSection, setActiveSection] = useState("hero");
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -131,13 +132,41 @@ export default function Home() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const scrollTo = (id: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // Sync the URL hash to whichever section is in view (scroll-spy), and drive
+  // active nav-item highlighting. Delayed briefly so it doesn't fight an
+  // incoming #anchor deep link's initial native scroll.
+  useEffect(() => {
+    const ids = ["hero", "ecosystem", "features", "how-it-works", "trust", "faq", "download"];
+    const observers: IntersectionObserver[] = [];
+    let hashSyncEnabled = false;
+    const enableTimer = window.setTimeout(() => { hashSyncEnabled = true; }, 1200);
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+            if (!hashSyncEnabled) return;
+            const newHash = id === "hero" ? "" : `#${id}`;
+            const newUrl = `${window.location.pathname}${window.location.search}${newHash}`;
+            if (window.location.hash !== newHash) {
+              window.history.replaceState(null, "", newUrl);
+            }
+          }
+        },
+        { threshold: 0.3, rootMargin: "-60px 0px -40% 0px" }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => {
+      window.clearTimeout(enableTimer);
+      observers.forEach((o) => o.disconnect());
+    };
+  }, []);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -168,10 +197,10 @@ export default function Home() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollTo("hero")} className="text-sm font-medium hover:text-primary transition-colors">الرئيسية</button>
-              <button onClick={() => scrollTo("features")} className="text-sm font-medium hover:text-primary transition-colors">ميزات الزبائن</button>
-              <button onClick={() => scrollTo("features")} className="text-sm font-medium hover:text-primary transition-colors">مدير هندام</button>
-              <button onClick={() => scrollTo("how-it-works")} className="text-sm font-medium hover:text-primary transition-colors">كيف يعمل؟</button>
+              <a href="#hero" className={`text-sm font-medium transition-colors ${activeSection === "hero" ? "text-primary" : "hover:text-primary"}`}>الرئيسية</a>
+              <a href="#features" className={`text-sm font-medium transition-colors ${activeSection === "features" ? "text-primary" : "hover:text-primary"}`}>ميزات الزبائن</a>
+              <a href="#features" className={`text-sm font-medium transition-colors ${activeSection === "features" ? "text-primary" : "hover:text-primary"}`}>مدير هندام</a>
+              <a href="#how-it-works" className={`text-sm font-medium transition-colors ${activeSection === "how-it-works" ? "text-primary" : "hover:text-primary"}`}>كيف يعمل؟</a>
             </div>
 
             {/* CTA & Theme Toggle */}
@@ -185,8 +214,8 @@ export default function Home() {
               >
                 {theme === "dark" ? <Sun className="h-5 w-5 text-yellow-500" /> : <Moon className="h-5 w-5 text-foreground" />}
               </Button>
-              <Button onClick={() => scrollTo("download")} className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
-                حمّل الآن
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
+                <a href="#download">حمّل الآن</a>
               </Button>
             </div>
 
@@ -206,10 +235,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden absolute top-20 left-0 w-full bg-background/95 backdrop-blur-xl border-b border-border shadow-lg py-4 px-4 flex flex-col gap-4"
           >
-            <button onClick={() => scrollTo("hero")} className="text-right text-base font-medium py-2 px-4 hover:bg-muted rounded-lg">الرئيسية</button>
-            <button onClick={() => scrollTo("features")} className="text-right text-base font-medium py-2 px-4 hover:bg-muted rounded-lg">ميزات الزبائن</button>
-            <button onClick={() => scrollTo("features")} className="text-right text-base font-medium py-2 px-4 hover:bg-muted rounded-lg">مدير هندام</button>
-            <button onClick={() => scrollTo("how-it-works")} className="text-right text-base font-medium py-2 px-4 hover:bg-muted rounded-lg">كيف يعمل؟</button>
+            <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "hero" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الرئيسية</a>
+            <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "features" ? "text-primary bg-muted" : "hover:bg-muted"}`}>ميزات الزبائن</a>
+            <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "features" ? "text-primary bg-muted" : "hover:bg-muted"}`}>مدير هندام</a>
+            <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "how-it-works" ? "text-primary bg-muted" : "hover:bg-muted"}`}>كيف يعمل؟</a>
             <div className="flex items-center justify-between border-t border-border pt-4 mt-2 px-4">
               <span className="text-sm font-medium">المظهر الداكن</span>
               <Button
@@ -221,8 +250,8 @@ export default function Home() {
                 {theme === "dark" ? <Sun className="h-5 w-5 text-yellow-500" /> : <Moon className="h-5 w-5 text-foreground" />}
               </Button>
             </div>
-            <Button onClick={() => scrollTo("download")} className="mt-2 w-full bg-primary text-primary-foreground rounded-xl">
-              حمّل الآن
+            <Button asChild className="mt-2 w-full bg-primary text-primary-foreground rounded-xl">
+              <a href="#download" onClick={() => setIsMobileMenuOpen(false)}>حمّل الآن</a>
             </Button>
           </motion.div>
         )}
