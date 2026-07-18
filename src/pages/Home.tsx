@@ -201,8 +201,8 @@ export default function Home() {
             <div className="hidden md:flex items-center gap-8">
               <a href="#hero" className={`text-sm font-medium transition-colors ${activeSection === "hero" ? "text-primary" : "hover:text-primary"}`}>الرئيسية</a>
               <a href="#features" className={`text-sm font-medium transition-colors ${activeSection === "features" ? "text-primary" : "hover:text-primary"}`}>الميزات</a>
-              <a href="#faq" className={`text-sm font-medium transition-colors ${activeSection === "faq" ? "text-primary" : "hover:text-primary"}`}>الأسئلة الشائعة</a>
               <a href="#how-it-works" className={`text-sm font-medium transition-colors ${activeSection === "how-it-works" ? "text-primary" : "hover:text-primary"}`}>كيف يعمل؟</a>
+              <a href="#faq" className={`text-sm font-medium transition-colors ${activeSection === "faq" ? "text-primary" : "hover:text-primary"}`}>الأسئلة الشائعة</a>
             </div>
 
             {/* CTA & Theme Toggle */}
@@ -239,8 +239,8 @@ export default function Home() {
           >
             <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "hero" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الرئيسية</a>
             <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "features" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الميزات</a>
-            <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "faq" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الأسئلة الشائعة</a>
             <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "how-it-works" ? "text-primary bg-muted" : "hover:bg-muted"}`}>كيف يعمل؟</a>
+            <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "faq" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الأسئلة الشائعة</a>
             <div className="flex items-center justify-between border-t border-border pt-4 mt-2 px-4">
               <span className="text-sm font-medium">المظهر الداكن</span>
               <Button
