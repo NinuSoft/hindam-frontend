@@ -132,30 +132,6 @@ export default function Home() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Scroll to the section matching the initial URL hash (e.g. after a
-  // refresh on /#faq). The browser's native one-time hash-scroll usually
-  // misses this because the target element doesn't exist yet at that point
-  // - React hasn't rendered it - so we retry until it's actually in the DOM.
-  useEffect(() => {
-    if (!window.location.hash) return;
-    const id = window.location.hash.slice(1);
-    let attempts = 0;
-    let timer: number;
-    const tryScroll = () => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "auto" });
-        return;
-      }
-      attempts++;
-      if (attempts < 40) {
-        timer = window.setTimeout(tryScroll, 50);
-      }
-    };
-    tryScroll();
-    return () => window.clearTimeout(timer);
-  }, []);
-
   // Sync the URL hash to whichever section is in view (scroll-spy), and drive
   // active nav-item highlighting. Delayed briefly so it doesn't fight an
   // incoming #anchor deep link's initial native scroll.
@@ -222,7 +198,7 @@ export default function Home() {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
               <a href="#hero" className={`text-sm font-medium transition-colors ${activeSection === "hero" ? "text-primary" : "hover:text-primary"}`}>الرئيسية</a>
-              <a href="#features" className={`text-sm font-medium transition-colors ${activeSection === "features" ? "text-primary" : "hover:text-primary"}`}>ميزات الزبائن</a>
+              <a href="#features" className={`text-sm font-medium transition-colors ${activeSection === "features" ? "text-primary" : "hover:text-primary"}`}>الميزات</a>
               <a href="#faq" className={`text-sm font-medium transition-colors ${activeSection === "faq" ? "text-primary" : "hover:text-primary"}`}>الأسئلة الشائعة</a>
               <a href="#how-it-works" className={`text-sm font-medium transition-colors ${activeSection === "how-it-works" ? "text-primary" : "hover:text-primary"}`}>كيف يعمل؟</a>
             </div>
@@ -260,7 +236,7 @@ export default function Home() {
             className="md:hidden absolute top-20 left-0 w-full bg-background/95 backdrop-blur-xl border-b border-border shadow-lg py-4 px-4 flex flex-col gap-4"
           >
             <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "hero" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الرئيسية</a>
-            <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "features" ? "text-primary bg-muted" : "hover:bg-muted"}`}>ميزات الزبائن</a>
+            <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "features" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الميزات</a>
             <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "faq" ? "text-primary bg-muted" : "hover:bg-muted"}`}>الأسئلة الشائعة</a>
             <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)} className={`text-right text-base font-medium py-2 px-4 rounded-lg ${activeSection === "how-it-works" ? "text-primary bg-muted" : "hover:bg-muted"}`}>كيف يعمل؟</a>
             <div className="flex items-center justify-between border-t border-border pt-4 mt-2 px-4">
