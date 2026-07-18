@@ -184,7 +184,7 @@ export default function Home() {
   };
 
   return (
-    <div dir="rtl" className="min-h-[100dvh] bg-background text-foreground overflow-x-clip selection:bg-primary/20 selection:text-primary">
+    <div dir="rtl" className="min-h-[100dvh] w-full flex flex-col bg-background text-foreground selection:bg-primary/20 selection:text-primary relative">
       {/* Animated Intro Screen */}
       <IntroScreen onComplete={handleIntroDone} />
 

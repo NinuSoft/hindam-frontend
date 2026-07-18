@@ -221,23 +221,17 @@
 
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
+@layer base {
   * {
     @apply border-border;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  *::-webkit-scrollbar {
-    display: none;
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
   }
 }
 
@@ -364,4 +358,14 @@
   background-image: radial-gradient(circle at 50% 50%, rgba(216, 76, 55, 0.08) 0%, transparent 60%),
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Hide scrollbar completely while keeping page scrollable */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
