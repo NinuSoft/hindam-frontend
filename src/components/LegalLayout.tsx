@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import DismissIntro from "@/components/DismissIntro";
 import type { ReactNode } from "react";
 
@@ -23,7 +23,7 @@ export default function LegalLayout({ title, updatedAt, children }: LegalLayoutP
           </Link>
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors">
             العودة للرئيسية
-            <ChevronRight className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" />
           </Link>
         </div>
       </header>
