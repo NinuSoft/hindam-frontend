@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ninusoft.hindam.manager",
+      "sha256_cert_fingerprints": [
+        "B5:28:B1:3D:B8:25:F3:D6:DF:B2:67:23:63:69:90:49:FB:4B:6B:B6:36:2C:8E:17:D7:1F:F9:F4:79:50:1F:DD",
+        "F8:0C:FC:47:53:4C:8B:E0:80:1E:BF:40:2F:31:E1:3E:2C:73:90:0C:3F:3C:57:29:34:1E:9A:1C:A8:49:EF:85",
+        "67:50:4B:3A:96:F1:15:34:AC:AB:E4:AB:A2:32:EC:69:31:D3:33:05:9A:F2:C1:08:23:A0:9E:70:77:C0:3B:15"
+      ]
+    }
+  }
+]
