@@ -8,7 +8,7 @@ const MANAGER_APP_URL = "https://play.google.com/store/apps/details?id=com.ninus
 const INTENT_URL = "intent://hindam.ninusoft.com/payment-complete#Intent;scheme=https;package=com.ninusoft.hindam.manager;end";
 
 export default function PaymentComplete() {
-  const [countdown, setCountdown] = useState(3);
+  const [countdown, setCountdown] = useState(5);
 
   const redirectToApp = () => {
     const isAndroid = /Android/i.test(navigator.userAgent);
